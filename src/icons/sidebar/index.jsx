@@ -1,0 +1,37 @@
+import AccountSettingsIcon from "./AccountSettings";
+import AdminEcommerceIcon from "./AdminEcommerce";
+import CalendarIcon from "./Calendar";
+import ChartDonut from "./ChartDonutIcon";
+import ChatIcon from "./Chat";
+import DashboardIcon from "./Dashboard";
+import DataTableIcon from "./DataTable";
+import EcommerceIcon from "./Ecommerce";
+import InvoiceIcon from "./Invoice";
+import KanbanIcon from "./Kanban";
+import PagesIcon from "./Pages";
+import DermatologieIcon from "./Dermatologie";
+import ProjectIcon from "./Projects";
+import SessionsIcon from "./Sessions";
+import UserManagementIcon from "./UserManagement";
+import UserProfileIcon from "./UserProfile";
+import CoronavirusIcon from '@mui/icons-material/Coronavirus';
+
+export default {
+  ChatIcon,
+  PagesIcon,
+  ChartDonut,
+  KanbanIcon,
+  ProjectIcon,
+  InvoiceIcon,
+  SessionsIcon,
+  CalendarIcon,
+  DermatologieIcon,
+  DashboardIcon,
+  CoronavirusIcon,
+  DataTableIcon,
+  EcommerceIcon,
+  UserProfileIcon,
+  AdminEcommerceIcon,
+  UserManagementIcon,
+  AccountSettingsIcon
+};

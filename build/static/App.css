@@ -1,0 +1,9 @@
+/* devanagari */
+@font-face {
+    font-family: 'Avenir-LTStd-Black';
+    font-style: normal;
+    
+    font-display: swap;
+    src: url(fonts/FontsFree-Net-AvenirLTStd-Black.ttf) format('truetype');
+  }
+  
