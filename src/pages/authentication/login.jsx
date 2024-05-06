@@ -45,7 +45,7 @@ const Login = () => {
       login(values.email, values.password).then(() => {
         setLoading(false);
         toast.success("You Logged In Successfully test");
-        navigate("/dashboard/sales");
+        navigate("/dashboard/image-grid");
       }).catch(error => {
         setError(error.message);
         setLoading(false);

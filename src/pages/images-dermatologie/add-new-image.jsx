@@ -1,5 +1,5 @@
 // add-new-image.jsx
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { PhotoCamera } from "@mui/icons-material";
 import {
   alpha,
@@ -17,7 +17,7 @@ import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import AppTextField from "components/input-fields/AppTextField";
-
+import AuthContext from "contexts/JWTAuth";
 import { Small } from "components/Typography";
 
 const ButtonWrapper = styled(Box)(({ theme }) => ({
@@ -63,6 +63,7 @@ const TextBelowIcon = styled(Box)(({ theme }) => ({
 
 const AddNewImage = () => {
   const navigate = useNavigate();
+  const { user } = useContext(AuthContext);
 
   const initialValues = {
     title: "",
@@ -91,11 +92,80 @@ const AddNewImage = () => {
     validationSchema,
     onSubmit: async (values) => {
       console.log("Form Values:", values); // Log form values
+      const formData = new FormData();
+      formData.append("file", image);
+      const response = await fetch("https://myserver.oulkaid-elhoussin.workers.dev/api/images/get-image-url", {
+        method: "POST",
+        body: formData,
+      });
+      if (response.ok) {
+        const imageUrl = await response.json();
+        console.log("Image URL:", imageUrl.imageurl);
+    console.log("the user name is: ",user.username);
+        // Send image data to second server
+        const dataResponse = await fetch("https://myserver.oulkaid-elhoussin.workers.dev/api/images/upload", {
+          method: "POST",
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            title: values.title,
+            description: values.description,
+            publisher: "houssin",
+            url: imageUrl.imageurl,
+            diseaseTitle: values.type,
+          }),
+        });
+    console.log("after");
+        if (!dataResponse.ok) {
+          toast.error("Failed to send image data");
+          return;
+        }
+        const responseData = await dataResponse.json();
+        console.log("Response Data:", responseData);
+    
+      } else {
+        toast.error("Failed to get image URL");
+        return;
+      }
       toast.success("The image uploaded successfully", { duration: 4000 });
       navigate("/dashboard/image-grid");
     },
   });
 
+  // const { values, errors, handleChange, handleSubmit, touched } = useFormik({
+  //   initialValues,
+  //   validationSchema,
+  //   onSubmit: async (values) => {
+  //     console.log("Form Values:", values); // Log form values
+  //     const formData = new FormData();
+  //     formData.append("title", values.title);
+  //     formData.append("description", values.description);
+  //     const currentUserName = localStorage.getItem("username");
+  //     formData.append("username", currentUserName);
+  //     formData.append("img", image);
+  //     formData.append("diseaseTitle", values.type);
+
+  //     try {
+  //       const response = await fetch("https://myserver.oulkaid-elhoussin.workers.dev/api/upload/images", {
+  //         method: "POST",
+  //         body: formData,
+  //       });
+
+  //       if (response.ok) {
+  //         toast.success("The image uploaded successfully", { duration: 4000 });
+  //         navigate("/dashboard/image-grid");
+  //       } else {
+  //         toast.error("Failed to upload image");
+  //       }
+  //     } catch (error) {
+  //       console.error("Error uploading image:", error);
+  //       toast.error("An error occurred while uploading the image");
+  //     }
+  //     toast.success("The image uploaded successfully", { duration: 4000 });
+  //     navigate("/dashboard/image-grid");
+  //   },
+  // });
   return (
     <Box pt={2} pb={4}>
       <Card sx={{ padding: 4 }}>

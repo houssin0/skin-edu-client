@@ -23,11 +23,28 @@ const AddNewDisease = () => {
     onSubmit: async (values) => {
       console.log("Form Values:", values); // Log form values
       // Here you can dispatch an action to add the new disease to your database or state
-      toast.success("New disease added successfully", { duration: 4000 });
-      navigate("/dashboard/disease-grid"); // Redirect to disease list page after adding
+      try {
+        const response = await fetch("https://myserver.oulkaid-elhoussin.workers.dev/api/diseases/upload", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(values),
+        });
+        if (response.ok) {
+          toast.success("New disease added successfully", { duration: 4000 });
+          navigate("/dashboard/disease-grid"); // Redirect to disease list page after adding
+        } else {
+          toast.error("Failed to add new disease");
+        }
+      } catch (error) {
+        console.error("Error:", error);
+        toast.error("An error occurred while adding the new disease");
+      }
     },
   });
 
+  
   return (
     <Box pt={2} pb={4}>
       <Card sx={{ padding: 4 }}>

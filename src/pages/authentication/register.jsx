@@ -20,7 +20,7 @@ const Register = () => {
   const [loading, setLoading] = useState(false);
 
   const initialValues = {
-    username: "",
+    name: "",
     email: "",
     password: "",
     repeatPassword: "",
@@ -30,7 +30,7 @@ const Register = () => {
   };
 
   const validationSchema = Yup.object().shape({
-    username: Yup.string().required("Name is required"),
+    name: Yup.string().required("Name is required"),
     email: Yup.string()
       .email("Must be a valid email")
       .max(255)
@@ -52,7 +52,7 @@ const Register = () => {
       onSubmit: async (values) => {
         setLoading(true);
         try {
-          await register(values.username, values.email, values.password, values.userType);
+          await register(values.name, values.email, values.password, values.userType);
           setLoading(false);
           toast.success("You registered successfully");
           navigate("/login");
@@ -93,14 +93,14 @@ const Register = () => {
               <TextFieldWrapper>
                 <AppTextField
                   fullWidth
-                  name="username"
+                  name="name"
                   type="text"
                   label="Name"
                   onBlur={handleBlur}
                   onChange={handleChange}
-                  value={values.username || ""}
-                  error={Boolean(touched.username && errors.username)}
-                  helperText={touched.username && errors.username}
+                  value={values.name || ""}
+                  error={Boolean(touched.name && errors.name)}
+                  helperText={touched.name && errors.name}
                   margin="normal"
                 />
               </TextFieldWrapper>

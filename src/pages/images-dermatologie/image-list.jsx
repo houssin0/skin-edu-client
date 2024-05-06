@@ -6,7 +6,7 @@ export const ImageList = [
       publisher: "Dermatology Society",
       img: "https://n9.cl/wllk5",
       date: "2023-05-12",
-      diseaseTitle: "Eczema"
+      diseaseTitle: "Eczema" 
     },
     {
       id: "002",

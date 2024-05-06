@@ -5,7 +5,7 @@ import axios from "utils/axios";
 
 const initialState = {
   isAuthenticated: false,
-  isInitialized: false,
+  isInitialized: false, 
   user: null,
 };
 
@@ -62,41 +62,56 @@ const AuthContext = createContext({
   method: "JWT",
   login: (email, password) => Promise.resolve(),
   logout: () => {},
-  register: (username, email, password, userType) => Promise.resolve(),
+  register: (name, email, password, userType) => Promise.resolve(),
 });
 
 export const JWTAuthProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const login = async (email, password) => {
-    const { data } = await axios.post("/api/auth/login", {
-      email,
-      password,
+    const response = await fetch("/api/auth/login", {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        email,
+        password,
+      })
     });
+    const data = await response.json();
     setSession(data.accessToken);
     dispatch({
       type: "LOGIN",
       payload: {
         user: data.user,
       },
-    });
+    }); 
   };
 
-  const register = async (username, email, password , userType) => {
-    const { data } = await axios.post("http://localhost:8081/register", {
-      username,
-      email,
-      password,
-      userType,
+  const register = async (name, email, password, userType) => {
+    const response = await fetch("/api/auth/register", {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        name,
+        email,
+        password,
+        userType,
+      })
     });
+    const data = await response.json();
     setSession(data.accessToken);
     dispatch({
       type: "REGISTER",
       payload: {
         user: data.user,
       },
-    });
+    }); 
   };
+  
 
   const logout = () => {
     setSession(null);

@@ -50,74 +50,103 @@ const ProfilePopover = () => {
     navigate('/login');
   };
 
-  return <Fragment>
+  return (
+    <Fragment>
       <StyledButtonBase disableRipple ref={anchorRef} onClick={() => setOpen(true)}>
-        <Badge overlap="circular" variant="dot" anchorOrigin={{
-        vertical: 'bottom',
-        horizontal: 'right'
-      }} sx={{
-        alignItems: 'center',
-        '& .MuiBadge-badge': {
-          width: 11,
-          height: 11,
-          right: '4%',
-          borderRadius: '50%',
-          border: '2px solid #fff',
-          backgroundColor: 'success.main'
-        }
-      }}>
-          {upSm && <Small mx={1} color="text.secondary">
+        <Badge
+          overlap="circular"
+          variant="dot"
+          anchorOrigin={{
+            vertical: 'bottom',
+            horizontal: 'right'
+          }}
+          sx={{
+            alignItems: 'center',
+            '& .MuiBadge-badge': {
+              width: 11,
+              height: 11,
+              right: '4%',
+              borderRadius: '50%',
+              border: '2px solid #fff',
+              backgroundColor: 'success.main'
+            }
+          }}
+        >
+          {upSm && (
+            <Small mx={1} color="text.secondary">
               Hi,{' '}
               <Small fontWeight="600" display="inline">
-                Aaron Cooper
+                {user?.name}
               </Small>
-            </Small>}
-          <AppAvatar src={user?.avatar || '/static/avatar/001-man.svg'} sx={{
-          width: 28,
-          height: 28
-        }} />
+            </Small>
+          )}
+          <AppAvatar
+            src={user?.avatar || '/static/avatar/001-man.svg'}
+            sx={{
+              width: 28,
+              height: 28
+            }}
+          />
         </Badge>
       </StyledButtonBase>
 
-      <PopoverLayout hiddenViewButton maxWidth={230} minWidth={200} popoverOpen={open} anchorRef={anchorRef} popoverClose={() => setOpen(false)} title={<FlexBox alignItems="center" gap={1}>
-            <AppAvatar src={user?.avatar || '/static/avatar/001-man.svg'} sx={{
-        width: 35,
-        height: 35
-      }} />
+      <PopoverLayout
+        hiddenViewButton
+        maxWidth={230}
+        minWidth={200}
+        popoverOpen={open}
+        anchorRef={anchorRef}
+        popoverClose={() => setOpen(false)}
+        title={
+          <FlexBox alignItems="center" gap={1}>
+            <AppAvatar
+              src={user?.avatar || '/static/avatar/001-man.svg'}
+              sx={{
+                width: 35,
+                height: 35
+              }}
+            />
 
             <Box>
               <H6>{user?.name || 'Aaron Cooper'}</H6>
               <Tiny display="block" fontWeight={500} color="text.disabled">
-                {user?.email || 'aaron@example.com'}
+                {user?.email}
               </Tiny>
             </Box>
-          </FlexBox>}>
+          </FlexBox>
+        }
+      >
         <Box pt={1}>
-          <StyledSmall onClick={() => handleMenuItem('/dashboard/profile')}>Set Status</StyledSmall>
+          <StyledSmall onClick={() => handleMenuItem('/dashboard/profile')}>
+            Set Status
+          </StyledSmall>
 
           <StyledSmall onClick={() => handleMenuItem('/dashboard/profile')}>
             Profile & Account
           </StyledSmall>
 
-          <StyledSmall onClick={() => handleMenuItem('/dashboard/account')}>Settings</StyledSmall>
+          <StyledSmall onClick={() => handleMenuItem('/dashboard/account')}>
+            Settings
+          </StyledSmall>
 
           <StyledSmall onClick={() => handleMenuItem('/dashboard/team-member')}>
             Manage Team
           </StyledSmall>
 
-          <Divider sx={{
-          my: 1
-        }} />
+          <Divider sx={{ my: 1 }} />
 
-          <StyledSmall onClick={() => {
-          handleLogout();
-          toast.error('You Logout Successfully');
-        }}>
+          <StyledSmall
+            onClick={() => {
+              handleLogout();
+              toast.error('You Logout Successfully');
+            }}
+          >
             Sign Out
           </StyledSmall>
         </Box>
       </PopoverLayout>
-    </Fragment>;
+    </Fragment>
+  );
 };
 
 export default ProfilePopover;

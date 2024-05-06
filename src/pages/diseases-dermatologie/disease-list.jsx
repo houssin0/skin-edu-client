@@ -9,7 +9,7 @@ export const DiseaseList = [
       id: "2",
       title: "Psoriasis",
       description: "Psoriasis is a chronic autoimmune condition that causes the rapid buildup of skin cells.",
-    },
+    }, 
     {
       id: "3",
       title: "Acne",
