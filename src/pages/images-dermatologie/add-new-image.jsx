@@ -1,5 +1,4 @@
-// add-new-image.jsx
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { PhotoCamera } from "@mui/icons-material";
 import {
   alpha,
@@ -79,6 +78,15 @@ const AddNewImage = () => {
 
   const [image, setImage] = useState(null);
   const [uploaded, setUploaded] = useState(false);
+  const [diseaseList, setDiseaseList] = useState([]);
+
+  useEffect(() => {
+    // Fetch disease list from server
+    fetch('https://myserver.oulkaid-elhoussin.workers.dev/api/diseases-titles')
+      .then(response => response.json())
+      .then(data => setDiseaseList(data))
+      .catch(error => console.error('Error fetching disease list:', error));
+  }, []); // Empty dependency array means this effect runs only once, after initial render
 
   const handleImageUpload = (event) => {
     if (event.target.files && event.target.files[0]) {
@@ -91,7 +99,6 @@ const AddNewImage = () => {
     initialValues,
     validationSchema,
     onSubmit: async (values) => {
-      console.log("Form Values:", values); // Log form values
       const formData = new FormData();
       formData.append("file", image);
       const response = await fetch("https://myserver.oulkaid-elhoussin.workers.dev/api/images/get-image-url", {
@@ -100,8 +107,7 @@ const AddNewImage = () => {
       });
       if (response.ok) {
         const imageUrl = await response.json();
-        console.log("Image URL:", imageUrl.imageurl);
-    console.log("the user name is: ",user.username);
+
         // Send image data to second server
         const dataResponse = await fetch("https://myserver.oulkaid-elhoussin.workers.dev/api/images/upload", {
           method: "POST",
@@ -111,18 +117,15 @@ const AddNewImage = () => {
           body: JSON.stringify({
             title: values.title,
             description: values.description,
-            publisher: "houssin",
-            url: imageUrl.imageurl,
+            publisher: user.name,
+            url: imageUrl,
             diseaseTitle: values.type,
           }),
         });
-    console.log("after");
         if (!dataResponse.ok) {
           toast.error("Failed to send image data");
           return;
         }
-        const responseData = await dataResponse.json();
-        console.log("Response Data:", responseData);
     
       } else {
         toast.error("Failed to get image URL");
@@ -133,39 +136,6 @@ const AddNewImage = () => {
     },
   });
 
-  // const { values, errors, handleChange, handleSubmit, touched } = useFormik({
-  //   initialValues,
-  //   validationSchema,
-  //   onSubmit: async (values) => {
-  //     console.log("Form Values:", values); // Log form values
-  //     const formData = new FormData();
-  //     formData.append("title", values.title);
-  //     formData.append("description", values.description);
-  //     const currentUserName = localStorage.getItem("username");
-  //     formData.append("username", currentUserName);
-  //     formData.append("img", image);
-  //     formData.append("diseaseTitle", values.type);
-
-  //     try {
-  //       const response = await fetch("https://myserver.oulkaid-elhoussin.workers.dev/api/upload/images", {
-  //         method: "POST",
-  //         body: formData,
-  //       });
-
-  //       if (response.ok) {
-  //         toast.success("The image uploaded successfully", { duration: 4000 });
-  //         navigate("/dashboard/image-grid");
-  //       } else {
-  //         toast.error("Failed to upload image");
-  //       }
-  //     } catch (error) {
-  //       console.error("Error uploading image:", error);
-  //       toast.error("An error occurred while uploading the image");
-  //     }
-  //     toast.success("The image uploaded successfully", { duration: 4000 });
-  //     navigate("/dashboard/image-grid");
-  //   },
-  // });
   return (
     <Box pt={2} pb={4}>
       <Card sx={{ padding: 4 }}>
@@ -271,27 +241,8 @@ const AddNewImage = () => {
                       <MenuItem value="" disabled>
                         Select Type
                       </MenuItem>
-                      {[
-                        "Eczema",
-                        "Psoriasis",
-                        "Acne",
-                        "Skin Cancer",
-                        "Dermatitis",
-                        "Rosacea",
-                        "Vitiligo",
-                        "Hives",
-                        "Benign Growths",
-                        "Precancerous Lesions",
-                        "Autoimmune Disorders",
-                        "Fungal Infections",
-                        "Bacterial Infections",
-                        "Viral Infections",
-                        "Skin Rashes",
-                        "Common Skin Conditions",
-                        "Chronic Skin Conditions",
-                        "Benign Tumors",
-                        "Hair Disorders",
-                      ].map((type) => (
+                      {/* Use diseaseList fetched from the server */}
+                      {diseaseList.map((type) => (
                         <MenuItem key={type} value={type}>
                           {type}
                         </MenuItem>

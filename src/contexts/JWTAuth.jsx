@@ -69,7 +69,7 @@ export const JWTAuthProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const login = async (email, password) => {
-    const response = await fetch("/api/auth/login", {
+    const response = await fetch("https://myserver.oulkaid-elhoussin.workers.dev/api/auth/login", {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -90,7 +90,7 @@ export const JWTAuthProvider = ({ children }) => {
   };
 
   const register = async (name, email, password, userType) => {
-    const response = await fetch("/api/auth/register", {
+    const response = await fetch("https://myserver.oulkaid-elhoussin.workers.dev/api/auth/register", {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -124,10 +124,11 @@ export const JWTAuthProvider = ({ children }) => {
     (async () => {
       try {
         const accessToken = localStorage.getItem("accessToken");
-
+  
         if (accessToken && isValidToken(accessToken)) {
           setSession(accessToken);
-          const { data } = await axios.get("/api/auth/profile");
+          const response = await fetch("https://myserver.oulkaid-elhoussin.workers.dev/api/auth/profile");
+          const data = await response.json();
           dispatch({
             type: "INIT",
             payload: {

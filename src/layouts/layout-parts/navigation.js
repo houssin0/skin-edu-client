@@ -6,41 +6,44 @@ export const navigations = [{
   name: 'LMS',
   path: '/dashboard',
   icon: duotone.PersonChalkboard
-}, {
-  name: 'Sales 1',
-  path: '/dashboard/sales',
-  icon: duotone.BadgeDollar
-}, {
-  name: 'Sales 2',
-  path: '/dashboard/sales-v2',
-  icon: duotone.MessagesDollar
-}, {
-  name: 'Hiring',
-  path: '/dashboard/job-management',
-  icon: duotone.PersonCircleCheck
-}, {
-  name: 'Project 1',
-  path: '/dashboard/project-management',
-  icon: duotone.RectangleCirclePlus
-}, {
-  name: 'Project 2',
-  path: '/dashboard/project-management-v2',
-  icon: duotone.DiagramProject
-}, {
-  name: 'CRM',
-  path: '/dashboard/crm',
-  icon: duotone.CommentsQuestionCheck,
-  badge: {
-    value: '30'
-  }
-}, {
-  name: 'SaaS',
-  path: '/dashboard/saas',
-  icon: duotone.LayerGroup
-}, {
-  type: 'label',
-  label: 'Management'
-}, {
+}, 
+// {
+//   name: 'Sales 1',
+//   path: '/dashboard/sales',
+//   icon: duotone.BadgeDollar
+// }, {
+//   name: 'Sales 2',
+//   path: '/dashboard/sales-v2',
+//   icon: duotone.MessagesDollar
+// }, {
+//   name: 'Hiring',
+//   path: '/dashboard/job-management',
+//   icon: duotone.PersonCircleCheck
+// }, {
+//   name: 'Project 1',
+//   path: '/dashboard/project-management',
+//   icon: duotone.RectangleCirclePlus
+// }, {
+//   name: 'Project 2',
+//   path: '/dashboard/project-management-v2',
+//   icon: duotone.DiagramProject
+// }, {
+//   name: 'CRM',
+//   path: '/dashboard/crm',
+//   icon: duotone.CommentsQuestionCheck,
+//   badge: {
+//     value: '30'
+//   }
+// }, {
+//   name: 'SaaS',
+//   path: '/dashboard/saas',
+//   icon: duotone.LayerGroup
+// }, {
+//   type: 'label',
+//   label: 'Management'
+// }
+
+{
   name: 'Profiles',
   icon: duotone.UserProfile,
   children: [{

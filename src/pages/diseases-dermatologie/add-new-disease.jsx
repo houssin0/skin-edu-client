@@ -21,8 +21,6 @@ const AddNewDisease = () => {
     initialValues,
     validationSchema,
     onSubmit: async (values) => {
-      console.log("Form Values:", values); // Log form values
-      // Here you can dispatch an action to add the new disease to your database or state
       try {
         const response = await fetch("https://myserver.oulkaid-elhoussin.workers.dev/api/diseases/upload", {
           method: "POST",

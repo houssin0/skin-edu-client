@@ -20,8 +20,8 @@ const Login = () => {
   const [loading, setLoading] = useState(false);
   let navigate = useNavigate();
   const initialValues = {
-    email: "demo@example.com",
-    password: "123456",
+    email: "houssin@test.com",
+    password: "houssin",
     submit: null,
     remember: true
   }; // form field value validation schema
