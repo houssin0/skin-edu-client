@@ -1,24 +1,53 @@
 import { Box, Button, Typography, Grid, Divider } from "@mui/material";
 import { useLocation, useNavigate } from "react-router-dom";
-import { DiseaseList } from "./disease-list";
-import { ImageList } from "../images-dermatologie/image-list";
+import React, { useState, useEffect } from "react";
 import ImageCard from "../images-dermatologie/image-card";
-import React from "react";
 
 const DiseaseDetails = () => {
   const navigate = useNavigate();
   const location = useLocation();
-const disease = location.state?.disease;
+  const disease = location.state?.disease;
+  const [selectedDisease, setSelectedDisease] = useState(null);
+  const [filteredImages, setFilteredImages] = useState([]);
+
+  useEffect(() => {
+    const fetchDiseaseData = async () => {
+      try {
+        const response = await fetch('https://myserver.oulkaid-elhoussin.workers.dev/api/diseases');
+        if (!response.ok) {
+          throw new Error('Failed to fetch disease details');
+        }
+        const data = await response.json();
+        const selected = data.find(item => item.title === disease.title);
+        setSelectedDisease(selected);
+      } catch (error) {
+        console.error('Error fetching disease details:', error);
+      }
+    };
+
+    const fetchImageData = async () => {
+      try {
+        const response = await fetch('https://myserver.oulkaid-elhoussin.workers.dev/api/images');
+        if (!response.ok) {
+          throw new Error('Failed to fetch images');
+        }
+        const data = await response.json();
+        const filtered = data.filter(image => image.diseaseTitle === disease.title);
+        setFilteredImages(filtered);
+      } catch (error) {
+        console.error('Error fetching images:', error);
+      }
+    };
+
+    if (disease) {
+      fetchDiseaseData();
+      fetchImageData();
+    }
+  }, [disease]);
 
   const handleReturnClick = () => {
     navigate(-1); // Navigate back to the previous page
   };
-
-  // Find the selected disease details
-  const selectedDisease = DiseaseList.find(item => item.title === disease.title);
-
-  // Filter the images based on the selected disease id
-  const filteredImages = ImageList.filter(image => image.diseaseTitle === disease.title);
 
   return (
     <Box p={3}>

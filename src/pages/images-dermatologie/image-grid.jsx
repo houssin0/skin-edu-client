@@ -4,8 +4,6 @@ import FlexBox from "components/flexbox/FlexBox";
 import SearchInput from "components/SearchInput";
 import ImageCard from "./image-card";
 import { useNavigate, useLocation } from "react-router-dom";
-import { ImageList } from "./image-list";
-import { DiseaseList } from "../diseases-dermatologie/disease-list";
 
 const StyledFlexBox = styled(FlexBox)(({ theme }) => ({
   justifyContent: "space-between",
@@ -31,6 +29,40 @@ const ImageGrid = () => {
   const [selectedDisease, setSelectedDisease] = useState("Filter");
   const [searchTerm, setSearchTerm] = useState("");
   const [sortOption, setSortOption] = useState("Sort");
+  const [imageList, setImageList] = useState([]);
+  const [diseaseTitles, setDiseaseTitles] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('https://myserver.oulkaid-elhoussin.workers.dev/api/images');
+        if (!response.ok) {
+          throw new Error('Failed to fetch images');
+        }
+        const data = await response.json();
+        setImageList(data);
+      } catch (error) {
+        console.error('Error fetching images:', error);
+      }
+    };
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    const fetchDiseaseTitles = async () => {
+      try {
+        const response = await fetch('https://myserver.oulkaid-elhoussin.workers.dev/api/diseases-titles');
+        if (!response.ok) {
+          throw new Error('Failed to fetch disease titles');
+        }
+        const data = await response.json();
+        setDiseaseTitles(data);
+      } catch (error) {
+        console.error('Error fetching disease titles:', error);
+      }
+    };
+    fetchDiseaseTitles();
+  }, []);
 
   useEffect(() => {
     const params = new URLSearchParams(location.search);
@@ -81,7 +113,7 @@ const ImageGrid = () => {
     navigate(`?${params.toString()}`, { replace: true });
   };
 
-  const sortedImages = ImageList.sort((a, b) => {
+  const sortedImages = imageList.sort((a, b) => {
     switch (sortOption) {
       case "Name":
         return a.title.localeCompare(b.title);
@@ -97,7 +129,7 @@ const ImageGrid = () => {
   return (
     <Box pt={2} pb={4}>
       <StyledFlexBox>
-        <SearchInput images={ImageList} onSearch={handleSearch} />
+        <SearchInput images={imageList} onSearch={handleSearch} />
         <Box>
           <Button variant="outlined" onClick={handleFilterClick}>
             {selectedDisease}
@@ -109,10 +141,8 @@ const ImageGrid = () => {
             onClose={handleClose}
           >
             <MenuItem onClick={() => handleDiseaseSelect("Filter")}>All</MenuItem>
-            {DiseaseList.map((disease) => (
-              <MenuItem key={disease.id} onClick={() => handleDiseaseSelect(disease.title)}>
-                {disease.title}
-              </MenuItem>
+            {diseaseTitles.map((title) => (
+              <MenuItem key={title} onClick={() => handleDiseaseSelect(title)}>{title}</MenuItem>
             ))}
           </Menu>
         </Box>
@@ -142,11 +172,12 @@ const ImageGrid = () => {
           (selectedDisease === "Filter" || image.diseaseTitle === selectedDisease) &&
           (searchTerm === "" || image.title.toLowerCase().includes(searchTerm.toLowerCase()))
         ).map((image, index) => (
-          <Grid item xs={12} sm={6} md={4} key={image.id}>
+          <Grid item xs={12} sm={6} md={3} key={image.id}>
             <ImageCard image={image} />
           </Grid>
         ))}
       </Grid>
+
     </Box>
   );
 };

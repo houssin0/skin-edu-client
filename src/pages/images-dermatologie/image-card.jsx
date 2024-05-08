@@ -16,7 +16,7 @@ const ImageCard = ({ image }) => {
         <CardMedia
           component="img"
           height="200"
-          image={image.img}
+          image={image.url}
           alt={image.title}
           style={{ objectFit: 'cover' }}
         />

@@ -6,7 +6,7 @@ import { useRoutes } from "react-router-dom";
 import routes from "./routes";
 import { createCustomTheme } from "theme";
 import "./i18n";
-
+ 
 const App = () => {
   const allPages = useRoutes(routes);
     const {

@@ -85,6 +85,7 @@ export const JWTAuthProvider = ({ children }) => {
       type: "LOGIN",
       payload: {
         user: data.user,
+        isAuthenticated: true,
       },
     }); 
   };
@@ -108,6 +109,7 @@ export const JWTAuthProvider = ({ children }) => {
       type: "REGISTER",
       payload: {
         user: data.user,
+        isAuthenticated: false,
       },
     }); 
   };

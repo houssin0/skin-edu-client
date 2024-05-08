@@ -22,7 +22,7 @@ const ImageDetails = () => {
       <Grid container spacing={3}>
         <Grid item xs={12} md={6}>
           <div style={{ display: 'flex', justifyContent: 'center', overflow: 'hidden' }}>
-            <InnerImageZoom src={image.img} zoomScale={2} />
+            <InnerImageZoom src={image.url} zoomScale={2} />
           </div>
         </Grid>
         <Grid item xs={12} md={6}>
@@ -48,10 +48,10 @@ const ImageDetails = () => {
             {image.diseaseTitle}
           </Typography>
           <Typography variant="h6" gutterBottom>
-            Date:
+            Publishing Date:
           </Typography>
           <Typography variant="body1" gutterBottom>
-            {image.date}
+            {new Date(image.date).toLocaleDateString()}
           </Typography>
         </Grid>
       </Grid>
