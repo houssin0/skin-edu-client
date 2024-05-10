@@ -131,8 +131,11 @@ const AddNewImage = () => {
         toast.error("Failed to get image URL");
         return;
       }
+      
       toast.success("The image uploaded successfully", { duration: 4000 });
+      // resetForm();
       navigate("/dashboard/image-grid");
+
     },
   });
 

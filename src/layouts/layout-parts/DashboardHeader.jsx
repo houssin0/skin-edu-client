@@ -1,21 +1,21 @@
-import { AppBar, Box, ClickAwayListener, IconButton, styled, Toolbar, useMediaQuery } from "@mui/material";
+import { AppBar, Box, IconButton, styled, Toolbar, useMediaQuery } from "@mui/material";
 import { SettingsContext } from "contexts/settingsContext";
-import MenuLeft from "icons/MenuLeft";
-import MenuLeftRight from "icons/MenuLeftRight";
-import SearchIcon from "icons/SearchIcon";
+// import MenuLeft from "icons/MenuLeft";
+// import MenuLeftRight from "icons/MenuLeftRight";
+// import SearchIcon from "icons/SearchIcon";
 import ThemeIcon from "icons/ThemeIcon";
-import { Fragment, useContext, useState } from "react";
+import { Fragment, useContext } from "react";
 import LanguagePopover from "./popovers/LanguagePopover";
-import NotificationsPopover from "./popovers/NotificationsPopover";
+// import NotificationsPopover from "./popovers/NotificationsPopover";
 import ProfilePopover from "./popovers/ProfilePopover";
-import ServicePopover from "./popovers/ServicePopover";
-import SearchBar from "./SearchBar"; // ------------------------------------------------
+// import ServicePopover from "./popovers/ServicePopover";
+// import SearchBar from "./SearchBar"; // ------------------------------------------------
 
 // ------------------------------------------------
 // custom styled components
 const DashboardHeaderRoot = styled(AppBar)(({
   theme
-}) => ({
+}) => ({ 
   zIndex: 11,
   boxShadow: "none",
   paddingTop: "1rem",
@@ -55,7 +55,7 @@ const DashboardHeader = props => {
   const {
     setShowMobileSideBar
   } = props;
-  const [openSearchBar, setSearchBar] = useState(false);
+  // const [openSearchBar, setSearchBar] = useState(false);
   const {
     settings,
     saveSettings
@@ -63,11 +63,11 @@ const DashboardHeader = props => {
   const upSm = useMediaQuery(theme => theme.breakpoints.up("sm"));
   const downMd = useMediaQuery(theme => theme.breakpoints.down(1200));
 
-  const handleChangeDirection = value => {
-    saveSettings({ ...settings,
-      direction: value
-    });
-  };
+  // const handleChangeDirection = value => {
+  //   saveSettings({ ...settings,
+  //     direction: value
+  //   });
+  // };
 
   const handleChangeTheme = value => {
     saveSettings({ ...settings,
@@ -85,7 +85,7 @@ const DashboardHeader = props => {
             <ToggleIcon width={9} />
           </Box>}
 
-        <ClickAwayListener onClickAway={() => setSearchBar(false)}>
+        {/* <ClickAwayListener onClickAway={() => setSearchBar(false)}>
           <Box>
             {!openSearchBar && <StyledIconButton onClick={() => setSearchBar(true)}>
                 <SearchIcon sx={{
@@ -95,11 +95,11 @@ const DashboardHeader = props => {
 
             <SearchBar open={openSearchBar} handleClose={() => setSearchBar(false)} />
           </Box>
-        </ClickAwayListener>
+        </ClickAwayListener> */}
 
         <Box flexGrow={1} ml={1} />
 
-        {settings.direction === "rtl" ? <StyledIconButton onClick={() => handleChangeDirection("ltr")}>
+        {/* {settings.direction === "rtl" ? <StyledIconButton onClick={() => handleChangeDirection("ltr")}>
             <MenuLeft sx={{
           color: "text.disabled"
         }} />
@@ -107,7 +107,7 @@ const DashboardHeader = props => {
             <MenuLeftRight sx={{
           color: "text.disabled"
         }} />
-          </StyledIconButton>}
+          </StyledIconButton>} */}
 
         {settings.theme === "light" ? <StyledIconButton onClick={() => handleChangeTheme("dark")}>
             <ThemeIcon />
@@ -117,8 +117,8 @@ const DashboardHeader = props => {
 
         {upSm && <Fragment>
             <LanguagePopover />
-            <NotificationsPopover />
-            <ServicePopover />
+            {/* <NotificationsPopover /> */}
+            {/* <ServicePopover /> */}
           </Fragment>}
         <ProfilePopover />
       </StyledToolBar>

@@ -68,27 +68,29 @@ const AuthContext = createContext({
 export const JWTAuthProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  const login = async (email, password) => {
-    const response = await fetch("https://myserver.oulkaid-elhoussin.workers.dev/api/auth/login", {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        email,
-        password,
-      })
-    });
-    const data = await response.json();
-    setSession(data.accessToken);
-    dispatch({
-      type: "LOGIN",
-      payload: {
-        user: data.user,
-        isAuthenticated: true,
-      },
-    }); 
-  };
+const login = async (email, password) => {
+  const response = await fetch("https://myserver.oulkaid-elhoussin.workers.dev/api/auth/login", {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      email,
+      password,
+    })
+  });
+
+  const data = await response.json();
+  localStorage.setItem('accessToken', data.accessToken); // Store the token in localStorage
+  setSession(data.accessToken);
+  dispatch({
+    type: "LOGIN",
+    payload: {
+      user: data.user,
+      isAuthenticated: true,
+    },
+  }); 
+};
 
   const register = async (name, email, password, userType) => {
     const response = await fetch("https://myserver.oulkaid-elhoussin.workers.dev/api/auth/register", {
@@ -129,7 +131,11 @@ export const JWTAuthProvider = ({ children }) => {
   
         if (accessToken && isValidToken(accessToken)) {
           setSession(accessToken);
-          const response = await fetch("https://myserver.oulkaid-elhoussin.workers.dev/api/auth/profile");
+          const response = await fetch("https://myserver.oulkaid-elhoussin.workers.dev/api/auth/profile", {
+            headers: {
+              'Authorization': accessToken // Include the accessToken in the Authorization header
+            }
+          });
           const data = await response.json();
           dispatch({
             type: "INIT",

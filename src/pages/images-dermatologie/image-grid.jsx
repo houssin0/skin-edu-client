@@ -164,7 +164,7 @@ const ImageGrid = () => {
         </Box>
         <Button variant="contained" onClick={() => navigate("/dashboard/add-image")}>
           Add New Image
-        </Button>
+        </Button> 
       </StyledFlexBox>
 
       <Grid container spacing={3}>

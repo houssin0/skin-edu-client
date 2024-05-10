@@ -13,7 +13,7 @@ const DiseaseCard = ({ disease }) => {
     <Card elevation={3}>
       <CardActionArea onClick={handleDiseaseClick}>
         <CardContent>
-          <Typography gutterBottom variant="h6" component="div" style={{ textAlign: 'center' }}>
+          <Typography gutterBottom variant="h6" component="div" style={{ textAlign: 'center', fontSize: "16px" }}>
             {disease.title}
           </Typography>
         </CardContent>
