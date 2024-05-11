@@ -18,7 +18,13 @@ const DiseaseGrid = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('https://myserver.oulkaid-elhoussin.workers.dev/api/diseases');
+        const accessToken = localStorage.getItem("accessToken");
+
+        const response = await fetch('https://myserver.oulkaid-elhoussin.workers.dev/api/diseases',{
+          headers: {
+            'Authorization': accessToken // Include the accessToken in the Authorization header
+          }
+        });
         if (!response.ok) {
           throw new Error('Failed to fetch diseases');
         }
