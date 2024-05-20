@@ -8,7 +8,7 @@ const UpgradeCard = () => {
     position: "relative",
     padding: "1rem 1.5rem",
     background: theme => theme.palette.mode === "light" ? "linear-gradient(250.16deg, #FFFFFF 2.51%, rgba(213, 241, 255, 0.54) 96.8%)" : "background.paper"
-  }}>
+  }}> 
       <FlexBetween>
         <Box maxWidth={200} width="100%">
           <H3 fontWeight={700} mb={1}>

@@ -35,8 +35,8 @@ const ImageGrid = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
+  
         const accessToken = localStorage.getItem("accessToken");
-
         const response = await fetch('https://myserver.oulkaid-elhoussin.workers.dev/api/images',{
           headers: {
             'Authorization': accessToken // Include the accessToken in the Authorization header

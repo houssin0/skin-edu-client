@@ -3,8 +3,11 @@ import FlexBox from "components/flexbox/FlexBox";
 import { H3, Small, Span } from "components/Typography";
 import Chart from "react-apexcharts";
 import { useTranslation } from "react-i18next";
+import React, { useContext } from "react";
+import AuthContext from "contexts/JWTAuth";
 
 const WelcomeCard = () => {
+  const { user } = useContext(AuthContext);
   const theme = useTheme();
   const {
     t
@@ -86,10 +89,10 @@ const WelcomeCard = () => {
     }}>
         <Box>
           <H3 mb={0.5} fontWeight={700}>
-            {t("Welcome Back! Watson")}
+            {t(`Welcome Back! ${user.name}`)}
           </H3>
           <Small color="text.secondary" display="block">
-            You have done <Span color="primary.main">76%</Span> more sales
+            You have done <Span color="primary.main">78%</Span> more sales
             today. <br /> Check your inventory and update your stocks.
           </Small>
         </Box>

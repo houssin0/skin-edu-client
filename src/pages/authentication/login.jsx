@@ -45,7 +45,7 @@ const Login = () => {
       login(values.email, values.password).then(() => {
         setLoading(false);
         toast.success("You Logged In Successfully test");
-        navigate("/dashboard/image-grid");
+        navigate("/dashboard");
       }).catch(error => {
         setError(error.message);
         setLoading(false);
@@ -106,7 +106,7 @@ const Login = () => {
             mt: 2,
             fontSize: 13,
             fontWeight: 500,
-            textAlign: "center"
+            textAlign: "center" 
           }}>
                 {error}
               </FormHelperText>}

@@ -5,7 +5,7 @@ export const primary = {
   main: primaryMain,
   100: alpha(primaryMain, 0.08),
   200: alpha(primaryMain, 0.2),
-  300: alpha(primaryMain, 0.3),
+  300: alpha(primaryMain, 0.3), 
   400: alpha(primaryMain, 0.4),
   red: "#FF6B93",
   purple: "#A798FF",

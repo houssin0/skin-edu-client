@@ -4,6 +4,7 @@ import { lazy, Suspense } from "react";
 import { Navigate } from "react-router-dom";
 import AuthGuard from "./page-sections/authentication/AuthGuard";
 import GuestGuard from "./page-sections/authentication/GuestGuard";
+import AdminGuard from "./page-sections/authentication/AdminGuard";
 
 const Loadable = Component => props => {
   return <Suspense fallback={<LoadingScreen />}>
@@ -91,7 +92,7 @@ const ContactPage = Loadable(lazy(() => import("./pages/contact")));
 const PricingPage = Loadable(lazy(() => import("./pages/pricing-v2")));
 const PrivacyPage = Loadable(lazy(() => import("./pages/privacy"))); // 404/Error page
 
-// const Error = Loadable(lazy(() => import("./pages/404")));
+const Error = Loadable(lazy(() => import("./pages/404")));
 
 // image management
 const ImageGrid = Loadable(lazy(() => import("./pages/images-dermatologie/image-grid")));
@@ -209,22 +210,46 @@ const routes = [
       element: <DataTableV2 />
     }, {
       path: "add-user",
-      element: <AddUser />
+      element: (
+        <AdminGuard>
+          <AddUser />
+        </AdminGuard>
+      )
     }, {
       path: "user-list",
-      element: <UserList />
+      element: (
+        <AdminGuard>
+          <UserList />
+        </AdminGuard>
+      )
     }, {
       path: "user-list-v2",
-      element: <UserListV2 />
+      element: (
+        <AdminGuard>
+          <UserListV2 />
+        </AdminGuard>
+      )
     }, {
       path: "user-grid",
-      element: <UserGrid />
+      element: (
+        <AdminGuard>
+          <UserGrid />
+        </AdminGuard>
+      )
     }, {
       path: "user-grid-v2",
-      element: <UserGridV2 />
+      element: (
+        <AdminGuard>
+          <UserGridV2 />
+        </AdminGuard>
+      )
     }, {
       path: "contact-list",
-      element: <ContactList />
+      element: (
+        <AdminGuard>
+          <ContactList />
+        </AdminGuard>
+      )
     }, {
       path: "contact-grid",
       element: <ContactGrid />
@@ -330,7 +355,12 @@ const routes = [
     }, {
       path: "privacy",
       element: <PrivacyPage />
-    }]}
+    },
+  ]}, 
+  {
+  path: "*",
+  element: <Error />,
+  }
 ];
 
 export default routes;

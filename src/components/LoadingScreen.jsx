@@ -15,4 +15,4 @@ const LoadingScreen = () => {
   return <Box />;
 };
 
-export default LoadingScreen;
+export default LoadingScreen; 

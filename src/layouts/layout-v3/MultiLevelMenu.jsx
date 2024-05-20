@@ -1,8 +1,10 @@
 import { alpha, Box, ButtonBase, styled } from "@mui/material";
 import { Paragraph, Span } from "components/Typography";
 import { useLocation, useNavigate } from "react-router-dom";
-import { navigations } from "../layout-parts/navigation";
+import Navigation from '../layout-parts/navigation';
 import SidebarAccordion from "./SidebarAccordion";
+
+
 const NavItemButton = styled(ButtonBase)(({
   theme,
   active
@@ -100,8 +102,9 @@ const iconStyle = active => ({
 
 // ---------------------------------------------------------------
 const MultiLevelMenu = ({
-  sidebarCompact
+    sidebarCompact
 }) => {
+  const navigations = Navigation();
   const navigate = useNavigate();
   const {
     pathname

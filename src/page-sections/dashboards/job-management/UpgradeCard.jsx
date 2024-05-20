@@ -12,7 +12,7 @@ const UpgradeCard = () => {
         <H3 pb={2} maxWidth={200} textAlign="center">
           Upgrade to <Span color="primary.main">PRO</Span> for more resources
         </H3>
-
+ 
         <img src="/static/illustration/job-management.svg" width="100%" alt="" />
       </FlexBox>
     </Card>;

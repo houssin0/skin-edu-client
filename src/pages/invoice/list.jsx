@@ -11,6 +11,7 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { searchByName } from "utils/utils";
+
 import INVOICE_LIST from "__fakeData__/invoice_data"; // styled components
 
 const StyledStack = styled(Stack)(({

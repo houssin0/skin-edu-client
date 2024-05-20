@@ -1,5 +1,12 @@
 import duotone from 'icons/duotone';
-export const navigations = [{
+import { useContext } from 'react';
+import AuthContext from '../../contexts/JWTAuth'; // Adjust the path to match your file structure
+// ... other imports ...
+
+const Navigation = () => {
+  const { user } = useContext(AuthContext);
+
+ const navigations = [{
   type: 'label',
   label: 'Dashboard'
 }, {
@@ -13,7 +20,7 @@ export const navigations = [{
 //   icon: duotone.BadgeDollar
 // }, {
 //   name: 'Sales 2',
-//   path: '/dashboard/sales-v2',
+//   path: '/dashboard/sales-v2', 
 //   icon: duotone.MessagesDollar
 // }, {
 //   name: 'Hiring',
@@ -75,7 +82,8 @@ export const navigations = [{
     name: 'Add New Disease',
     path: '/dashboard/add-disease'
   }]
-}, {
+}, 
+
 //   name: 'Accounts',
 //   icon: duotone.Accounts,
 //   children: [{
@@ -85,6 +93,7 @@ export const navigations = [{
 //   //   path: '/dashboard/account-v2'
 //   }]
 // }, {
+  user.userType === 'admin' && {
   name: 'User & Contact',
   icon: duotone.UserList,
   children: [{
@@ -290,4 +299,10 @@ export const navigations = [{
   icon: duotone.FileCircleQuestion,
   type: 'extLink',
   path: 'https://uko-react-doc.vercel.app/'
-}];
+}].filter(Boolean);
+
+return navigations;
+};
+
+export default Navigation;
+
