@@ -92,8 +92,8 @@ const WelcomeCard = () => {
             {t(`Welcome Back! ${user.name}`)}
           </H3>
           <Small color="text.secondary" display="block">
-            You have done <Span color="primary.main">78%</Span> more sales
-            today. <br /> Check your inventory and update your stocks.
+            You have done <Span color="primary.main">78%</Span> in the last Quiz.
+             <br /> Check your inventory and update your stocks.
           </Small>
         </Box>
 

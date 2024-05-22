@@ -12,7 +12,7 @@ const UpgradeCard = () => {
       <FlexBetween>
         <Box maxWidth={200} width="100%">
           <H3 fontWeight={700} mb={1}>
-            Upgrade to <Span color="primary.main">PRO</Span> for more resources
+            A new <Span  color="primary.main" style={{ fontSize: 'larger' }}>Quiz</Span> is Available Today
           </H3>
           <ButtonBase sx={{
           fontSize: 12,
@@ -22,7 +22,7 @@ const UpgradeCard = () => {
           padding: "0.8rem 2rem",
           background: "linear-gradient(180deg, rgba(0, 172, 255, 0.46) 0%, rgba(189, 0, 255, 0.345) 100%)"
         }}>
-            Upgrade Now
+            Start Now
           </ButtonBase>
         </Box>
 

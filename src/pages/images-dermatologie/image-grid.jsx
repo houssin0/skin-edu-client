@@ -7,7 +7,7 @@ import SearchInput from "../../components/input-fields/SearchInput"; // Import t
 import AuthContext from "contexts/JWTAuth";
 import Add from "icons/Add";
 import { useTranslation } from "react-i18next"; 
-
+ 
 const StyledFlexBox = styled(FlexBox)(({ theme }) => ({
   justifyContent: "space-between",
   alignItems: "center",

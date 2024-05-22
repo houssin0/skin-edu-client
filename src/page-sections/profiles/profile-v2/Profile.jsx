@@ -45,9 +45,9 @@ const Profile = () => {
   const handleMoreClose = () => setMoreEl(null);
 
   return <Grid container spacing={3}>
-      <Grid item md={5} xs={12}>
-        <Card>
-          <FollowWrapper>
+      <Grid >
+      <Card >
+                  <FollowWrapper>
             <FlexBox alignItems="center">
               <IconWrapper>
                 <UserPlusIcon fontSize="small" />
@@ -57,7 +57,7 @@ const Profile = () => {
                   {t("Following")}
                 </Small>
                 <H3 lineHeight={1} mt={0.6}>
-                  93,675
+                  18
                 </H3>
               </Box>
             </FlexBox>
@@ -70,7 +70,7 @@ const Profile = () => {
                   {t("Followers")}
                 </Small>
                 <H3 lineHeight={1} mt={0.6}>
-                  82,469
+                  52
                 </H3>
               </Box>
             </FlexBox>
@@ -81,8 +81,7 @@ const Profile = () => {
           <Box padding={3}>
             <H4 fontWeight={600}>{t("About")}</H4>
             <Small mt={1} display="block" lineHeight={1.9}>
-              Tart I love sugar plum I love oat cake. Sweet roll caramels I love
-              jujubes. Topping cake wafer..
+            Professeur de dermatologie, est spécialisé dans les maladies de la peau et les traitements innovants, avec plus de 20 ans d'expérience clinique et académique. Auteur de nombreuses publications, il est reconnu pour ses recherches sur les maladies auto-immunes cutanées.
             </Small>
 
             <Box mt={3}>
@@ -103,30 +102,26 @@ const Profile = () => {
         </Card>
       </Grid>
 
-      <Grid item md={7} xs={12}>
+      {/* <Grid item md={7} xs={12}>
         {postList.map(post => <PostCard post={post} key={post.id} handleMore={handleMoreOpen} />)}
 
         <MoreOptions anchorEl={moreEl} handleMoreClose={handleMoreClose} />
-      </Grid>
+      </Grid> */}
     </Grid>;
 };
 
 const details = [{
   Icon: Place,
-  boldText: "Kuwait",
+  boldText: "Morocco",
   smallText: "Lives at"
 }, {
   Icon: Mail,
   boldText: "",
   smallText: "Lenore_Rosenbaum@gmail.com"
-}, {
+},  {
   Icon: BusinessCenter,
-  boldText: "UI_LIB",
-  smallText: "Manager at"
-}, {
-  Icon: BusinessCenter,
-  smallText: "Studied at",
-  boldText: "Corwin - Blick"
+  smallText: "Doctorat",
+  boldText: "Médecine Université de Paris, 1990"
 }];
 const postList = [{
   id: 1,

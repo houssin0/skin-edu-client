@@ -7,6 +7,7 @@ import IconWrapper from "components/IconWrapper";
 import Add from "icons/Add";
 import GroupSenior from "icons/GroupSenior";
 import { useTranslation } from "react-i18next"; // styled components
+import { useNavigate } from "react-router-dom";
 
 const Wrapper = styled(Box)(() => ({
   display: "flex",
@@ -30,6 +31,8 @@ const HeadingArea = ({
   const {
     t
   } = useTranslation();
+  const navigate = useNavigate();
+
   return <Wrapper gap={1}>
       <FlexBox alignItems="center">
         <IconWrapper>
@@ -50,7 +53,7 @@ const HeadingArea = ({
         </TabListWrapper>
       </TabContext>
 
-      <Button variant="contained" startIcon={<Add />}>
+      <Button variant="contained" startIcon={<Add />} onClick={() => navigate("/dashboard/add-user")}>
         {t("Add New User")}
       </Button>
     </Wrapper>;

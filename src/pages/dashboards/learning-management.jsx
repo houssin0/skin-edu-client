@@ -40,9 +40,9 @@ const LearningManagement = () => {
           <UpgradeCard />
         </Grid>
 
-        <Grid item md={4} xs={12}>
+        {/* <Grid item md={4} xs={12}>
           <Results />
-        </Grid>
+        </Grid> */}
 
         <Grid item md={4} xs={12}>
           <StudyTime />
@@ -52,11 +52,11 @@ const LearningManagement = () => {
           <UpcomingTask />
         </Grid>
 
-        {learningCardList.map((item, key) => <Grid item md={4} xs={12} key={key}>
+        {/* {learningCardList.map((item, key) => <Grid item md={4} xs={12} key={key}>
             <LearningCard card={item} />
-          </Grid>)}
+          </Grid>)} */}
 
-        <Grid item md={8} xs={12}>
+        {/* <Grid item md={8} xs={12}>
           <CourseStatus />
         </Grid>
 
@@ -66,7 +66,7 @@ const LearningManagement = () => {
 
         <Grid item xs={12}>
           <Footer imageLink="/static/illustration/footer.svg" />
-        </Grid>
+        </Grid> */}
       </Grid>
     </Box>;
 };
