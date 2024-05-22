@@ -17,7 +17,7 @@ import INVOICE_LIST from "__fakeData__/invoice_data"; // styled components
 const StyledStack = styled(Stack)(({
   theme
 }) => ({
-  [theme.breakpoints.down(565)]: {
+  [theme.breakpoints.down(565)]: { 
     width: "100%"
   }
 }));

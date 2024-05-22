@@ -5,11 +5,11 @@ const INVOICE_LIST = [{
   name: "Natalie Dormer",
   avatar: "/static/avatar/001-man.svg",
   status: "Complete",
-  email: "Mike1203@gmail.com"
+  email: "Mike1203@gmail.com" 
 }, {
   invoiceId: "#872349",
   date: new Date(2021, 11, 2),
-  id: "615193bab7b256189c6fe997",
+  id: "615193bab7b256189c6fe997", 
   name: "Kyle Williams",
   avatar: "/static/avatar/005-man-1.svg",
   status: "Complete",

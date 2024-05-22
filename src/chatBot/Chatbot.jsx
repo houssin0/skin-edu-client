@@ -15,7 +15,8 @@ const Chatbot = () => {
   const [isTyping, setIsTyping] = useState(false);
   const chatboxRef = useRef(null);
   const messagesEndRef = useRef(null);
-  const chatIconRef= useRef(null);
+  const chatIconRef = useRef(null);
+  const inputRef = useRef(null); // Add useRef for the input field
   const [welcomeMessage] = useState({
     role: "system",
     content: "Hello, I am SkinEdu Assistance! Ask me anything",
@@ -39,6 +40,12 @@ const Chatbot = () => {
       messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
     }
   }, [messages, isTyping]);
+
+  useEffect(() => {
+    if (isOpen && inputRef.current) {
+      inputRef.current.focus(); // Focus on the input field when the chatbox opens
+    }
+  }, [isOpen]);
 
   const toggleChatbox = () => {
     setIsOpen(prevState => !prevState); // Toggle isOpen state
@@ -117,6 +124,7 @@ const Chatbot = () => {
               onChange={(e) => setInput(e.target.value)}
               onKeyPress={(e) => (e.key === 'Enter' ? handleSend() : null)}
               placeholder="Type your message..."
+              ref={inputRef} // Reference the input field
             />
             <button onClick={handleSend}>Send</button>
           </div>

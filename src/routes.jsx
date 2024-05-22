@@ -5,11 +5,13 @@ import { Navigate } from "react-router-dom";
 import AuthGuard from "./page-sections/authentication/AuthGuard";
 import GuestGuard from "./page-sections/authentication/GuestGuard";
 import AdminGuard from "./page-sections/authentication/AdminGuard";
+import TeacherAdminGuard from "./page-sections/authentication/TeacherAdminGuard";
+import ApprovedGuard from "page-sections/authentication/ApprovedGuard";
 
 const Loadable = Component => props => {
   return <Suspense fallback={<LoadingScreen />}>
-      <Component {...props} />
-    </Suspense>;
+    <Component {...props} />
+  </Suspense>;
 }; // dashboards
 
 
@@ -124,7 +126,7 @@ const routes = [
     ),
   }, {
     path: "forget-password",
-    element:(
+    element: (
       <GuestGuard>
         <ForgetPassword />
       </GuestGuard>
@@ -134,8 +136,11 @@ const routes = [
     path: "dashboard",
     element: (
       <AuthGuard>
-        <DashboardLayout />
-      </AuthGuard>
+          <ApprovedGuard>
+          <DashboardLayout />
+      </ApprovedGuard>
+        </AuthGuard>
+
     ),
     children: [{
       path: "",
@@ -174,11 +179,19 @@ const routes = [
     },
     {
       path: "add-image",
-      element: <AddNewImage />,
+      element: (
+        <TeacherAdminGuard>
+          <AddNewImage />
+        </TeacherAdminGuard>
+      )
     },
     {
       path: "add-disease",
-      element: <AddNewDisease />,
+      element: (
+        <TeacherAdminGuard>
+          <AddNewDisease />
+        </TeacherAdminGuard>
+      )
     },
     {
       path: "image/:id",
@@ -197,15 +210,15 @@ const routes = [
       path: "account",
       element: <Account />
     }, {
-    //   path: "account-v2",
-    //   element: <AccountV2 />
-    // }, {
+      //   path: "account-v2",
+      //   element: <AccountV2 />
+      // }, {
       path: "profile",
       element: <ProfileV2 />
     }, {
-    //   path: "profile-v2",
-    //   element: <ProfileV2 />
-    // }, {
+      //   path: "profile-v2",
+      //   element: <ProfileV2 />
+      // }, {
       path: "data-table-v2",
       element: <DataTableV2 />
     }, {
@@ -217,11 +230,8 @@ const routes = [
       )
     }, {
       path: "user-list",
-      element: (
-        <AdminGuard>
-          <UserList />
-        </AdminGuard>
-      )
+      element:
+        <UserList />
     }, {
       path: "user-list-v2",
       element: (
@@ -252,7 +262,11 @@ const routes = [
       )
     }, {
       path: "contact-grid",
-      element: <ContactGrid />
+      element: (
+        <AdminGuard>
+          <ContactGrid />
+        </AdminGuard>
+      )
     }, {
       path: "invoice-list",
       element: <InvoiceList />
@@ -356,10 +370,11 @@ const routes = [
       path: "privacy",
       element: <PrivacyPage />
     },
-  ]}, 
+    ]
+  },
   {
-  path: "*",
-  element: <Error />,
+    path: "*",
+    element: <Error />,
   }
 ];
 

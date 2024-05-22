@@ -2,10 +2,10 @@ const USER_LIST = [{
   id: 1,
   avatar: "/static/avatar/001-man.svg",
   name: "Zachary Gomez",
-  username: "zachary-gomez",
+  status: "zachary-gomez",
   email: "zachary-gomez@gmail.com",
   role: "Editor",
-  company: "Ui Lib"
+  company: "Ui Lib"  
 }, {
   id: 2,
   avatar: "/static/avatar/002-girl.svg",

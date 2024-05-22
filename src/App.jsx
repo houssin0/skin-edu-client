@@ -11,7 +11,7 @@ import AuthContext from "contexts/JWTAuth";
 import { useContext } from "react";
 
 const App = () => {
-  const { isAuthenticated } = useContext(AuthContext);
+  const { isAuthenticated, user } = useContext(AuthContext);
   const allPages = useRoutes(routes);
   const { settings } = useSettings();
   const theme = createCustomTheme({
@@ -31,7 +31,7 @@ const App = () => {
         <RTL>
           <CssBaseline />
           {allPages}
-          {isAuthenticated && !is404Page && <Chatbot />} {/* Use the Chatbot component if the user is logged in and not on the 404 page */}
+          {isAuthenticated && user.is_approved && !is404Page && <Chatbot />}
         </RTL>
       </ThemeProvider>
     </StyledEngineProvider>
@@ -39,3 +39,4 @@ const App = () => {
 };
 
 export default App;
+ 

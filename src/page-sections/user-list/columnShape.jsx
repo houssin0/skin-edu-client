@@ -1,24 +1,27 @@
 import { Edit } from "@mui/icons-material";
 import { IconButton } from "@mui/material";
-import AppAvatar from "components/avatars/AppAvatar";
 const columnShape = [{
-  Header: "Avatar",
-  accessor: "avatar",
-  Cell: ({
-    value
-  }) => <AppAvatar src={value} sx={{
-    borderRadius: "20%"
-  }} />
-}, {
+//   Header: "Avatar",
+//   accessor: "avatar",
+//   Cell: ({
+//     value
+//   }) => <AppAvatar src={value} sx={{
+//     borderRadius: "20%"
+//   }} /> 
+// }, {
   Header: "Name",
   accessor: "name"
 }, {
-  Header: "Company",
-  accessor: "company"
+  Header: "Email",
+  accessor: "email"
 }, {
   Header: "Role",
-  accessor: "role"
+  accessor: "userType"
 }, {
+  Header: "Status",
+  accessor: "is_approved"
+}, 
+{
   Header: "Edit",
   accessor: "edit",
   Cell: props => {

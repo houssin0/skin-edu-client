@@ -14,7 +14,7 @@ const UnauthorizedPage = () => {
         textAlign: 'center',
         bgcolor: theme.palette.background.default,
         height:'80vh'
-      }}
+      }} 
     >
       <Box maxWidth={350} width="100%" >
         <img src="/static/illustration/401-err.svg" width="75%" alt="Error 401" />
@@ -26,6 +26,7 @@ const UnauthorizedPage = () => {
         You are not authorized to view this page.
       </Typography>
       <Button
+      
         component={Link}
         to="/"
         variant="contained" 

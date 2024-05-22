@@ -38,15 +38,15 @@ const HeadingArea = ({
         }} />
         </IconWrapper>
         <H5>{t("Users")}</H5>
-      </FlexBox>
+      </FlexBox> 
 
       <TabContext value={value}>
         <TabListWrapper variant="scrollable" onChange={changeTab}>
           <Tab disableRipple label={t("All Users")} value="" />
-          <Tab disableRipple label={t("Editor")} value="editor" />
-          <Tab disableRipple label={t("Contributor")} value="contributor" />
-          <Tab disableRipple label={t("Administrator")} value="administrator" />
-          <Tab disableRipple label={t("Subscriber")} value="subscriber" />
+          <Tab disableRipple label={t("Admin")} value="admin" />
+          <Tab disableRipple label={t("Teacher")} value="teacher" />
+          <Tab disableRipple label={t("Student")} value="student" />
+          {/* <Tab disableRipple label={t("Subscriber")} value="subscriber" /> */}
         </TabListWrapper>
       </TabContext>
 

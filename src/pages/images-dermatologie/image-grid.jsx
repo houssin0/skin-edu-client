@@ -1,9 +1,12 @@
-import React, { useState, useEffect } from "react";
-import { Box, Button, Grid, styled, MenuItem, Menu } from "@mui/material";
+import React, { useState, useContext, useEffect } from "react";
+import { Box, Button, Grid, styled, MenuItem, Menu, Pagination } from "@mui/material";
 import FlexBox from "components/flexbox/FlexBox";
-import SearchInput from "components/SearchInput";
 import ImageCard from "./image-card";
 import { useNavigate, useLocation } from "react-router-dom";
+import SearchInput from "../../components/input-fields/SearchInput"; // Import the SearchInput component
+import AuthContext from "contexts/JWTAuth";
+import Add from "icons/Add";
+import { useTranslation } from "react-i18next"; 
 
 const StyledFlexBox = styled(FlexBox)(({ theme }) => ({
   justifyContent: "space-between",
@@ -23,23 +26,26 @@ const StyledFlexBox = styled(FlexBox)(({ theme }) => ({
 const ImageGrid = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const { user } = useContext(AuthContext);
+  const { t } = useTranslation();
 
   const [filterAnchorEl, setFilterAnchorEl] = useState(null);
   const [sortAnchorEl, setSortAnchorEl] = useState(null);
   const [selectedDisease, setSelectedDisease] = useState("Filter");
-  const [searchTerm, setSearchTerm] = useState("");
   const [sortOption, setSortOption] = useState("Sort");
   const [imageList, setImageList] = useState([]);
   const [diseaseTitles, setDiseaseTitles] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [searchQuery, setSearchQuery] = useState(""); // State for search query
+  const imagesPerPage = 40;
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-  
         const accessToken = localStorage.getItem("accessToken");
-        const response = await fetch('https://myserver.oulkaid-elhoussin.workers.dev/api/images',{
+        const response = await fetch('https://myserver.oulkaid-elhoussin.workers.dev/api/images', {
           headers: {
-            'Authorization': accessToken // Include the accessToken in the Authorization header
+            'Authorization': accessToken
           }
         });
         if (!response.ok) {
@@ -74,13 +80,17 @@ const ImageGrid = () => {
     const params = new URLSearchParams(location.search);
     const option = params.get('option') || 'Sort';
     const disease = params.get('disease') || 'Filter';
+    const page = parseInt(params.get('page'), 10) || 1;
+    const query = params.get('query') || '';
     setSortOption(option);
     setSelectedDisease(disease);
+    setCurrentPage(page);
+    setSearchQuery(query);
   }, [location.search]);
 
-  const handleSearch = (term) => {
-    setSearchTerm(term);
-  };
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [currentPage]);
 
   const handleFilterClick = (event) => {
     setFilterAnchorEl(event.currentTarget);
@@ -104,6 +114,7 @@ const ImageGrid = () => {
     } else {
       params.delete('disease');
     }
+    params.set('page', 1); // Reset to first page
     navigate(`?${params.toString()}`, { replace: true });
   };
 
@@ -116,8 +127,34 @@ const ImageGrid = () => {
     } else {
       params.delete('option');
     }
+    params.set('page', 1); // Reset to first page
     navigate(`?${params.toString()}`, { replace: true });
   };
+
+  const handlePageChange = (event, value) => {
+    setCurrentPage(value);
+    const params = new URLSearchParams(location.search);
+    if (value === 1) {
+      params.delete('page');
+    } else {
+      params.set('page', value);
+    }
+    navigate(`?${params.toString()}`, { replace: true });
+  };
+
+  const handleSearchChange = (event) => {
+    const query = event.target.value;
+    setSearchQuery(query);
+    const params = new URLSearchParams(location.search);
+    if (query) {
+      params.set('query', query);
+    } else {
+      params.delete('query');
+      params.set('page', 1); // Reset to first page when search query is cleared
+    }
+    navigate(`?${params.toString()}`, { replace: true });
+  };
+  
 
   const sortedImages = imageList.sort((a, b) => {
     switch (sortOption) {
@@ -132,10 +169,25 @@ const ImageGrid = () => {
     }
   });
 
+  const filteredImages = sortedImages.filter((image) =>
+    (selectedDisease === "Filter" || image.diseaseTitle === selectedDisease) &&
+    image.title.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
+  const indexOfLastImage = currentPage * imagesPerPage;
+  const indexOfFirstImage = indexOfLastImage - imagesPerPage;
+  const currentImages = filteredImages.slice(indexOfFirstImage, indexOfLastImage);
+
   return (
     <Box pt={2} pb={4}>
       <StyledFlexBox>
-        <SearchInput images={imageList} onSearch={handleSearch} />
+        <Box>
+          <SearchInput
+            placeholder="Search by image title"
+            value={searchQuery}
+            onChange={handleSearchChange}
+          />
+        </Box>
         <Box>
           <Button variant="outlined" onClick={handleFilterClick}>
             {selectedDisease}
@@ -168,22 +220,32 @@ const ImageGrid = () => {
             <MenuItem onClick={() => handleSort("Oldest First")}>Oldest First</MenuItem>
           </Menu>
         </Box>
-        <Button variant="contained" onClick={() => navigate("/dashboard/add-image")}>
-          Add New Image
-        </Button> 
+        <Box>
+          {(user.userType === 'admin' || user.userType === 'med_teacher') &&
+            <Button variant="contained" startIcon={<Add />} onClick={() => navigate("/dashboard/add-image")}>
+               {t("Add New Image")}
+            </Button>
+          }
+
+        </Box>
       </StyledFlexBox>
 
       <Grid container spacing={3}>
-        {sortedImages.filter((image) =>
-          (selectedDisease === "Filter" || image.diseaseTitle === selectedDisease) &&
-          (searchTerm === "" || image.title.toLowerCase().includes(searchTerm.toLowerCase()))
-        ).map((image, index) => (
+        {currentImages.map((image, index) => (
           <Grid item xs={12} sm={6} md={3} key={image.id}>
             <ImageCard image={image} />
           </Grid>
         ))}
       </Grid>
 
+      <Box sx={{ display: 'flex', justifyContent: 'center', mt: 3 }}>
+        <Pagination
+          count={Math.ceil(filteredImages.length / imagesPerPage)}
+          page={currentPage}
+          onChange={handlePageChange}
+          color="primary"
+        />
+      </Box>
     </Box>
   );
 };
