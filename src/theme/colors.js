@@ -1,5 +1,5 @@
 import { alpha } from "@mui/material/styles";
-const primaryMain = "#2499EF";
+const primaryMain = "#6950E8";
 export const primary = {
   light: "#E5F3FD",
   main: primaryMain,
@@ -33,7 +33,7 @@ export const success = {
 };
 export const warning = {
   light: "#FFFAF2",
-  main: "#FFC675",
+  main: "#FEBF06",
   dark: "#B78103"
 };
 export const error = {

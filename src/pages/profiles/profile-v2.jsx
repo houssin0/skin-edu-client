@@ -88,7 +88,7 @@ const UserProfile = () => {
 
               <Box marginLeft={3} marginTop={3}>
                 <H3 lineHeight={1.2}>{user?.name}</H3>
-                <Small color="text.disabled">UI Designer</Small>
+                <Small color="text.disabled">{user.userType}</Small>
               </Box>
             </ContentWrapper>
 

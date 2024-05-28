@@ -9,6 +9,7 @@ import "./i18n";
 import Chatbot from '../src/chatBot/Chatbot';
 import AuthContext from "contexts/JWTAuth";
 import { useContext } from "react";
+import { Toaster } from 'react-hot-toast';
 
 const App = () => {
   const { isAuthenticated, user } = useContext(AuthContext);
@@ -32,6 +33,7 @@ const App = () => {
           <CssBaseline />
           {allPages}
           {isAuthenticated && user.is_approved && !is404Page && <Chatbot />}
+          <Toaster />
         </RTL>
       </ThemeProvider>
     </StyledEngineProvider>

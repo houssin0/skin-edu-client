@@ -9,7 +9,7 @@ import { useTranslation } from "react-i18next"; // styled component
 
 const StyledButton = styled(Button)(({
   theme
-}) => ({
+}) => ({ 
   borderRadius: 0,
   position: "relative",
   padding: "0.6rem 1.5rem",
@@ -96,14 +96,14 @@ const Account = () => {
           {active === tabList[1].name && <TabComponent.Password />}
           {active === tabList[2].name && <TabComponent.Preferences />}
           {active === tabList[3].name && <TabComponent.RecentDevices />}
-          {active === tabList[4].name && <TabComponent.Notifications />}
+          {/* {active === tabList[4].name && <TabComponent.Notifications />} */}
           {active === tabList[5].name && <TabComponent.TwoStepVerification />}
-          {active === tabList[6].name && <TabComponent.ConnectedAccounts />}
-          {active === tabList[7].name && <TabComponent.SocialAccounts />}
-          {active === tabList[8].name && <TabComponent.Billing />}
-          {active === tabList[9].name && <TabComponent.Statements />}
-          {active === tabList[10].name && <TabComponent.Referrals />}
-          {active === tabList[11].name && <TabComponent.ApiKeys />}
+          {/* {active === tabList[6].name && <TabComponent.ConnectedAccounts />} */}
+          {/* {active === tabList[7].name && <TabComponent.SocialAccounts />} */}
+          {/* {active === tabList[8].name && <TabComponent.Billing />} */}
+          {/* {active === tabList[9].name && <TabComponent.Statements />} */}
+          {/* {active === tabList[10].name && <TabComponent.Referrals />} */}
+          {/* {active === tabList[11].name && <TabComponent.ApiKeys />} */}
           {active === tabList[12].name && <TabComponent.DeleteAccount />}
         </Grid>
       </Grid>

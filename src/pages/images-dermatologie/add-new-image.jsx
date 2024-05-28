@@ -123,12 +123,12 @@ const AddNewImage = () => {
           }),
         });
         if (!dataResponse.ok) {
-          toast.error("Failed to send image data");
+          toast.error("Failed to send image data", { duration: 3000 });
           return;
         }
     
       } else {
-        toast.error("Failed to get image URL");
+        toast.error("Failed to get image URL", { duration: 3000 });
         return;
       }
       

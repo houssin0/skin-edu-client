@@ -1,15 +1,26 @@
+import React, { useState, useEffect } from "react";
+import {
+  Card, IconButton, Stack, useTheme, styled, Table, TableContainer, TextField, Button, Dialog, DialogContent, DialogTitle, DialogActions, TableBody, TableCell, TablePagination, TableRow
+} from "@mui/material";
 import { Edit } from "@mui/icons-material";
-import { Card, IconButton, Stack, styled, Table, TableContainer } from "@mui/material";
-import TableBody from "@mui/material/TableBody";
-import TableCell from "@mui/material/TableCell";
-import TablePagination from "@mui/material/TablePagination";
-import TableRow from "@mui/material/TableRow";
 import AppCheckBox from "components/AppCheckBox";
-import AppAvatar from "components/avatars/AppAvatar";
 import Scrollbar from "components/ScrollBar";
 import { H5, Tiny } from "components/Typography";
-import { useState } from "react";
 import TableHeader from "./TableHeader";
+import { LoadingButton } from "@mui/lab";
+
+const StyledTableCell = styled(TableCell)(({ theme }) => ({
+  paddingTop: 10,
+  paddingBottom: 10,
+}));
+
+const tableHeading = [
+  { id: "name", label: "Name", alignRight: false },
+  { id: "email", label: "Email", alignRight: false },
+  { id: "userType", label: "Role", alignRight: false },
+  { id: "is_approved", label: "Status", alignRight: false },
+  { id: "edit", label: "Edit", alignRight: true },
+];
 
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) return -1;
@@ -31,77 +42,50 @@ function stableSort(array, comparator) {
   return stabilizedThis.map(el => el[0]);
 }
 
-const tableHeading = [{
-  id: "name",
-  label: "Name",
-  alignRight: false
-}, {
-  id: "username",
-  label: "Username",
-  alignRight: false
-}, {
-  id: "email",
-  label: "Email",
-  alignRight: false
-}, {
-  id: "role",
-  label: "Role",
-  alignRight: false
-}, {
-  id: "edit",
-  label: "Edit",
-  alignRight: true
-}]; // list data
-
-const customerListData = [{
-  name: "Natalie Dormer",
-  role: "UI Designer",
-  avatar: "/static/avatar/001-man.svg",
-  email: "Uilib@gmail.com",
-  username: "natalie-dormer"
-}, {
-  name: "Steven Smith",
-  role: "Developer",
-  avatar: "/static/avatar/002-girl.svg",
-  email: "Uilib@gmail.com",
-  username: "steven-smith"
-}, {
-  name: "Lily Collins",
-  role: "UI Designer",
-  avatar: "/static/avatar/003-boy.svg",
-  email: "Uilib@gmail.com",
-  username: "lily-collins"
-}]; // styled components
-
-const StyledTableCell = styled(TableCell)(() => ({
-  paddingTop: 10,
-  paddingBottom: 10
-}));
-
-const CustomerList = () => {
+const UserList = () => {
+  const theme = useTheme();
   const [page, setPage] = useState(0);
   const [orderBy, setOrderBy] = useState("name");
   const [order, setOrder] = useState("asc");
   const [rowsPerPage, setRowsPerPage] = useState(5);
   const [selected, setSelected] = useState([]);
+  const [tableData, setTableData] = useState([]);
+  const [editingUser, setEditingUser] = useState(null);
+  const [loadingSave, setLoadingSave] = useState(false);
 
-  const handleRequestSort = property => {
+  useEffect(() => {
+    const fetchUsers = async () => {
+      try {
+        const accessToken = localStorage.getItem("accessToken");
+        const response = await fetch('https://myserver.oulkaid-elhoussin.workers.dev/api/users', {
+          headers: { Authorization: accessToken },
+        });
+        const data = await response.json();
+        setTableData(data);
+      } catch (error) {
+        console.error('Failed to fetch users:', error);
+      }
+    };
+
+    fetchUsers();
+  }, []);
+
+  const handleRequestSort = (property) => {
     const isAsc = orderBy === property && order === "asc";
     setOrder(isAsc ? "desc" : "asc");
     setOrderBy(property);
   };
 
-  const handleSelectAllClick = checked => {
+  const handleSelectAllClick = (checked) => {
     if (checked) {
-      const newSelecteds = customerListData.map(n => n.name);
+      const newSelecteds = tableData.map((n) => n.name);
       setSelected(newSelecteds);
       return;
     }
-
     setSelected([]);
   };
 
-  const handleClick = name => {
+  const handleClick = (name) => {
     const selectedIndex = selected.indexOf(name);
     let newSelected = [];
 
@@ -118,71 +102,179 @@ const CustomerList = () => {
     setSelected(newSelected);
   };
 
-  const handleChangeRowsPerPage = event => {
+  const handleChangeRowsPerPage = (event) => {
     setRowsPerPage(parseInt(event.target.value, 10));
     setPage(0);
   };
 
-  const filteredUsers = stableSort(customerListData, getComparator(order, orderBy)).slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage);
-  return <Card sx={{
-    padding: 3
-  }}>
+  const handleEditClick = (user) => {
+    setEditingUser(user);
+  };
+
+  const handleEditChange = (field, value) => {
+    setEditingUser(prev => ({ ...prev, [field]: value }));
+  };
+
+  const updateUser = async (user) => {
+    try {
+      setLoadingSave(true);
+      const accessToken = localStorage.getItem("accessToken");
+      const response = await fetch(`https://myserver.oulkaid-elhoussin.workers.dev/api/users/${user.id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: accessToken,
+        },
+        body: JSON.stringify(user),
+      });
+      const data = await response.json();
+      if (response.ok) {
+        return data;
+      } else {
+        console.error('Failed to update user:', data.message);
+        return null;
+      }
+    } catch (error) {
+      console.error('Failed to update user:', error);
+      return null;
+    } finally {
+      setLoadingSave(false);
+    }
+  };
+
+  const handleEditSave = async () => {
+    if (editingUser) {
+      const updatedUser = await updateUser(editingUser);
+      if (updatedUser) {
+        setTableData(prevData => prevData.map(user => (user.id === updatedUser.id ? updatedUser : user)));
+        setEditingUser(null);
+      }
+    }
+  };
+
+  const handleEditCancel = () => {
+    setEditingUser(null);
+  };
+
+  const filteredUsers = stableSort(tableData, getComparator(order, orderBy)).slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage);
+
+  return (
+    <Card sx={{ padding: 3 }}>
       <H5 mb={2}>Customer List</H5>
 
       <Scrollbar>
-        <TableContainer sx={{
-        minWidth: 800
-      }}>
+        <TableContainer sx={{ minWidth: 800 }}>
           <Table>
-            <TableHeader order={order} orderBy={orderBy} heading={tableHeading} numSelected={selected.length} onRequestSort={handleRequestSort} rowCount={customerListData.length} onSelectAllClick={handleSelectAllClick} />
+            <TableHeader
+              order={order}
+              orderBy={orderBy}
+              heading={tableHeading}
+              numSelected={selected.length}
+              onRequestSort={handleRequestSort}
+              rowCount={tableData.length}
+              onSelectAllClick={handleSelectAllClick}
+            />
             <TableBody>
-              {filteredUsers.map((row, index) => {
-              const {
-                name,
-                role,
-                email,
-                username,
-                avatar
-              } = row;
-              const isItemSelected = selected.indexOf(name) !== -1;
-              return <TableRow key={index} tabIndex={-1} role="checkbox" selected={isItemSelected} aria-checked={isItemSelected} sx={{
-                "&.Mui-selected": {
-                  backgroundColor: "transparent"
-                }
-              }}>
+              {filteredUsers.map((row) => {
+                const { id, name, userType, email, is_approved } = row;
+                const isItemSelected = selected.indexOf(name) !== -1;
+                return (
+                  <TableRow
+                    key={id}
+                    tabIndex={-1}
+                    role="checkbox"
+                    selected={isItemSelected}
+                    aria-checked={isItemSelected}
+                    sx={{ "&.Mui-selected": { backgroundColor: "transparent" } }}
+                  >
                     <StyledTableCell padding="checkbox">
                       <AppCheckBox checked={isItemSelected} onClick={() => handleClick(name)} />
                     </StyledTableCell>
-
                     <StyledTableCell>
                       <Stack direction="row" alignItems="center" spacing={2}>
-                        <AppAvatar alt={name} src={avatar} />
                         <Tiny fontWeight={600} color="text.primary">
                           {name}
                         </Tiny>
                       </Stack>
                     </StyledTableCell>
-
-                    <StyledTableCell align="left">{username}</StyledTableCell>
                     <StyledTableCell align="left">{email}</StyledTableCell>
-                    <StyledTableCell align="left">{role}</StyledTableCell>
-
+                    <StyledTableCell align="left">{userType}</StyledTableCell>
+                    <StyledTableCell align="left">{is_approved}</StyledTableCell>
                     <StyledTableCell align="right">
-                      <IconButton>
-                        <Edit sx={{
-                      color: "text.disabled"
-                    }} />
+                      <IconButton onClick={() => handleEditClick(row)}>
+                        <Edit sx={{ color: "text.disabled" }} />
                       </IconButton>
                     </StyledTableCell>
-                  </TableRow>;
-            })}
+                  </TableRow>
+                );
+              })}
             </TableBody>
           </Table>
         </TableContainer>
       </Scrollbar>
 
-      <TablePagination page={page} component="div" rowsPerPage={rowsPerPage} count={customerListData.length} rowsPerPageOptions={[5, 10, 25]} onPageChange={(_, page) => setPage(page)} onRowsPerPageChange={_ => handleChangeRowsPerPage} />
-    </Card>;
+      <TablePagination
+        page={page}
+        component="div"
+        rowsPerPage={rowsPerPage}
+        count={tableData.length}
+        rowsPerPageOptions={[5, 10, 25]}
+        onPageChange={(_, page) => setPage(page)}
+        onRowsPerPageChange={handleChangeRowsPerPage}
+      />
+
+      {editingUser && (
+        <Dialog open={!!editingUser} onClose={handleEditCancel} maxWidth="sm" fullWidth>
+          <DialogTitle>Edit User</DialogTitle>
+          <DialogContent>
+            <Stack spacing={2} mt={2}>
+              <TextField
+                label="Name"
+                value={editingUser.name}
+                onChange={(e) => handleEditChange('name', e.target.value)}
+                fullWidth
+                variant="outlined"
+              />
+              <TextField
+                label="Email"
+                value={editingUser.email}
+                onChange={(e) => handleEditChange('email', e.target.value)}
+                fullWidth
+                variant="outlined"
+              />
+              <TextField
+                label="Role"
+                value={editingUser.userType}
+                onChange={(e) => handleEditChange('userType', e.target.value)}
+                fullWidth
+                variant="outlined"
+              />
+              <TextField
+                label="Status"
+                value={editingUser.is_approved}
+                onChange={(e) => handleEditChange('is_approved', e.target.value)}
+                fullWidth
+                variant="outlined"
+              />
+            </Stack>
+          </DialogContent>
+          <DialogActions>
+            <LoadingButton
+              variant="contained"
+              color="primary"
+              onClick={handleEditSave}
+              loading={loadingSave}
+            >
+              Save
+            </LoadingButton>
+            <Button variant="outlined" color="secondary" onClick={handleEditCancel}>
+              Cancel
+            </Button>
+          </DialogActions>
+        </Dialog>
+      )}
+    </Card>
+  );
 };
 
-export default CustomerList;
+export default UserList;

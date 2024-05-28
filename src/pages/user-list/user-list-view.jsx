@@ -1,18 +1,21 @@
-import { Box, Card, Checkbox, Stack, styled, Table, TableRow, useTheme } from "@mui/material";
+import React, { forwardRef, useEffect, useMemo, useRef, useState } from "react";
+import { Box, Card, Checkbox, Stack, styled, Table, TableRow, useTheme, IconButton } from "@mui/material";
+import { Edit, Refresh } from "@mui/icons-material"; // Import the Refresh icon
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
 import TableHead from "@mui/material/TableHead";
 import AppPagination from "components/AppPagination";
+import LoadingScreen from "components/LoadingScreen";
 import Scrollbar from "components/ScrollBar";
 import BlankCheckBoxIcon from "icons/BlankCheckBoxIcon";
 import CheckBoxIcon from "icons/CheckBoxIcon";
 import SearchArea from "page-sections/admin-ecommerce/product-list/search-area";
 import columnShape from "page-sections/user-list/columnShape";
 import HeadingArea from "page-sections/user-list/heading-area";
-import { forwardRef, useEffect, useMemo, useRef, useState } from "react";
 import { useAsyncDebounce, useGlobalFilter, usePagination, useRowSelect, useSortBy, useTable } from "react-table";
+import EditUserDialog from "./EditUserDialog"; // Import the new component
 
-
+// Styled components
 const HeadTableCell = styled(TableCell)(({ theme }) => ({
   fontSize: 12,
   fontWeight: 600,
@@ -46,6 +49,9 @@ const SelectCheckBox = forwardRef(({ indeterminate, ...rest }, ref) => {
 const UserListView = () => {
   const [value, setValue] = useState("");
   const [tableData, setTableData] = useState([]);
+  const [editingUser, setEditingUser] = useState(null);
+  const [openEditDialog, setOpenEditDialog] = useState(false);
+  const [loading, setLoading] = useState(false); // Added loading state
   const theme = useTheme();
   const columns = useMemo(() => columnShape, []);
 
@@ -56,7 +62,7 @@ const UserListView = () => {
 
         const response = await fetch('https://myserver.oulkaid-elhoussin.workers.dev/api/users', {
           headers: {
-            'Authorization': accessToken // Include the accessToken in the Authorization header
+            'Authorization': accessToken
           }
         });
         const data = await response.json();
@@ -92,18 +98,73 @@ const UserListView = () => {
   });
 
   const handleChange = (_, currentPageNo) => gotoPage(currentPageNo - 1);
-
   const changeTab = (_, newValue) => setValue(newValue);
 
   const [searchValue, setSearchValue] = useState(state.globalFilter);
   const handleSearch = useAsyncDebounce(value => setGlobalFilter(value || undefined), 200);
+
+  const handleEditClick = (user) => {
+    setEditingUser(user);
+    setOpenEditDialog(true);
+  };
+
+  const handleEditSave = async (updatedUser) => {
+    try {
+      const accessToken = localStorage.getItem("accessToken");
+      const response = await fetch(`https://myserver.oulkaid-elhoussin.workers.dev/api/users/${updatedUser.id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': accessToken
+        },
+        body: JSON.stringify(updatedUser),
+      });
+      const data = await response.json();
+      if (response.ok) {
+        setTableData(prevData => prevData.map(user => (user.id === data.id ? data : user)));
+      } else {
+        console.error('Failed to update user:', data.message);
+      }
+    } catch (error) {
+      console.error('Failed to update user:', error);
+    }
+  };
+
+  const handleDialogClose = () => {
+    setOpenEditDialog(false);
+    setEditingUser(null);
+  };
+
+  const handleRefresh = async () => {
+    try {
+      setLoading(true); // Set loading to true when refreshing data
+      const accessToken = localStorage.getItem("accessToken");
+
+      const response = await fetch('https://myserver.oulkaid-elhoussin.workers.dev/api/users', {
+        headers: {
+          'Authorization': accessToken
+        }
+      });
+      const data = await response.json();
+      setTableData(data);
+    } catch (error) {
+      console.error('Failed to refresh users:', error);
+    } finally {
+      setLoading(false); // Set loading to false after refreshing data
+    }
+  };
 
   return (
     <Box pt={2} pb={4}>
       <Card sx={{ py: 2 }}>
         <Box px={3}>
           <HeadingArea value={value} changeTab={changeTab} />
-          <SearchArea value={searchValue} onChange={handleSearch} setValue={setSearchValue} selectedItems={selectedFlatRows} gridRoute="/dashboards/user-grid" listRoute="/dashboards/user-list" />
+          <Box display="flex" alignItems="center">
+            <SearchArea value={searchValue} onChange={handleSearch} setValue={setSearchValue}  />
+            <IconButton onClick={handleRefresh}>
+              <Refresh />
+            </IconButton>
+          </Box>
         </Box>
         <Scrollbar autoHide={false}>
           <Table {...getTableProps()} sx={{ minWidth: 900 }}>
@@ -128,7 +189,12 @@ const UserListView = () => {
                         {cell.render("Cell")}
                       </BodyTableCell>
                     ))}
-                  </TableRow>
+                    <BodyTableCell>
+                      <IconButton onClick={() => handleEditClick(row.original)}>
+                        <Edit sx={{ color: "text.disabled", fontSize: 18 }} />
+                      </IconButton>
+                    </BodyTableCell>
+                    </TableRow>
                 );
               })}
             </TableBody>
@@ -138,6 +204,15 @@ const UserListView = () => {
           <AppPagination shape="rounded" onChange={handleChange} count={pageOptions.length} />
         </Stack>
       </Card>
+      {editingUser && (
+        <EditUserDialog
+          open={openEditDialog}
+          onClose={handleDialogClose}
+          onSave={handleEditSave}
+          user={editingUser}
+        />
+      )}
+      {loading && <LoadingScreen />}
     </Box>
   );
 };

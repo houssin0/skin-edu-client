@@ -1,7 +1,7 @@
 import { TabContext, TabList } from "@mui/lab";
 import { Button, styled, Tab } from "@mui/material";
 import { Box } from "@mui/system";
-import FlexBox from "components/flexbox/FlexBox";
+import FlexBox from "components/flexbox/FlexBox"; 
 import { H5 } from "components/Typography";
 import IconWrapper from "components/IconWrapper";
 import Add from "icons/Add";
@@ -49,7 +49,7 @@ const HeadingArea = ({
           <Tab disableRipple label={t("Admin")} value="admin" />
           <Tab disableRipple label={t("Teacher")} value="teacher" />
           <Tab disableRipple label={t("Student")} value="student" />
-          {/* <Tab disableRipple label={t("Subscriber")} value="subscriber" /> */}
+          <Tab disableRipple label={t("Not Approved")} value="is_approved" />
         </TabListWrapper>
       </TabContext>
 

@@ -6,14 +6,23 @@ import AuthContext from '../../contexts/JWTAuth'; // Adjust the path to match yo
 const Navigation = () => {
   const { user } = useContext(AuthContext);
 
- const navigations = [{
+ const navigations = [
+  {
   type: 'label',
   label: 'Dashboard'
-}, {
+},
+user.userType === 'med_student' && {
   name: 'Dashboard',
   path: '/dashboard',
   icon: duotone.PersonChalkboard
-}, 
+}, user.userType === 'admin' && {
+  name: 'App',
+  path: '/dashboard/crm',
+  icon: duotone.CommentsQuestionCheck,
+  badge: {
+    value: '22'
+  },
+},
 // {
 //   name: 'Sales 1',
 //   path: '/dashboard/sales',
@@ -34,13 +43,8 @@ const Navigation = () => {
 //   name: 'Project 2',
 //   path: '/dashboard/project-management-v2',
 //   icon: duotone.DiagramProject
-// }, {
-//   name: 'CRM',
-//   path: '/dashboard/crm',
-//   icon: duotone.CommentsQuestionCheck,
-//   badge: {
-//     value: '30'
-//   }
+// }, 
+
 // }, {
 //   name: 'SaaS',
 //   path: '/dashboard/saas',
@@ -49,7 +53,6 @@ const Navigation = () => {
 //   type: 'label',
 //   label: 'Management'
 // }
-
 {
   name: 'Profiles',
   icon: duotone.UserProfile,
@@ -100,24 +103,30 @@ const Navigation = () => {
     name: 'Add User',
     path: '/dashboard/add-user'
   }, {
-    name: 'User List 1',
+    name: 'User List',
     path: '/dashboard/user-list'
-  }, {
-    name: 'User List 2',
-    path: '/dashboard/user-list-v2'
-  }, {
-    name: 'User Grid 1',
+  }, 
+  // {
+  //   name: 'User List 2',
+  //   path: '/dashboard/user-list-v2'
+  // }, 
+  {
+    name: 'User Grid',
     path: '/dashboard/user-grid'
-  }, {
-    name: 'User Grid 2',
-    path: '/dashboard/user-grid-v2'
-  }, {
+  }, 
+  // {
+  //   name: 'User Grid 2',
+  //   path: '/dashboard/user-grid-v2'
+  // }, 
+  {
     name: 'Contact List',
     path: '/dashboard/contact-list'
-  }, {
-    name: 'Contact Grid',
-    path: '/dashboard/contact-grid'
-  }]
+  }, 
+  // {
+  //   name: 'Contact Grid',
+  //   path: '/dashboard/contact-grid'
+  // }
+]
 }, 
 // {
 //   name: 'Invoice',

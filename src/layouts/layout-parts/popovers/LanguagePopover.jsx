@@ -10,7 +10,7 @@ const languageOptions = {
   },
   es: {
     icon: "/static/flags/spain.png",
-    label: "Spanish"
+    label: "French"
   } //   hi: {
   //     icon: '/static/flags/in.png',
   //     label: 'Hindi',

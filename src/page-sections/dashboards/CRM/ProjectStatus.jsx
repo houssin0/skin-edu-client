@@ -38,7 +38,7 @@ const ProjectStatus = () => {
         }
       }
     },
-    labels: ["In Progress", "On Hold", "Upcoming", "Completed"],
+    labels: ["In Progress", "Not yet Started", "Upcoming", "Completed"],
     theme: {
       mode: theme.palette.mode
     },
@@ -72,7 +72,7 @@ const ProjectStatus = () => {
     height: "100%"
   }}>
       <H5 mb={3} textAlign="center">
-        Project Status
+        Quiz Status
       </H5>
 
       <Chart height={370} type="donut" options={chartOptions} series={[50, 30, 20, 40]} />

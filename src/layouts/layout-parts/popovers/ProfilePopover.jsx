@@ -117,9 +117,9 @@ const ProfilePopover = () => {
         }
       >
         <Box pt={1}>
-          <StyledSmall onClick={() => handleMenuItem('/dashboard/profile')}>
+          {/* <StyledSmall onClick={() => handleMenuItem('/dashboard/profile')}>
             Set Status
-          </StyledSmall>
+          </StyledSmall> */}
 
           <StyledSmall onClick={() => handleMenuItem('/dashboard/profile')}>
             Profile & Account
@@ -129,9 +129,9 @@ const ProfilePopover = () => {
             Settings
           </StyledSmall>
 
-          <StyledSmall onClick={() => handleMenuItem('/dashboard/team-member')}>
+          {/* <StyledSmall onClick={() => handleMenuItem('/dashboard/team-member')}>
             Manage Team
-          </StyledSmall>
+          </StyledSmall> */}
 
           <Divider sx={{ my: 1 }} />
 

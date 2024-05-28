@@ -14,8 +14,8 @@ const VectorMap = () => {
     if (id) id.innerHTML = "";
     const map = new Map({
       selector: "#map",
-      zoomOnScroll: false,
-      zoomButtons: false,
+      zoomOnScroll: true,
+      zoomButtons: true,
       markersSelectable: false,
       showTooltip: false,
       markers: [{

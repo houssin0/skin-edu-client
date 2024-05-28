@@ -9,7 +9,7 @@ const index = [{
     name: "Job Management",
     path: "/dashboard/job-management"
   }, {
-    name: "CRM",
+    name: "App",
     path: "/dashboard/crm"
   }, {
     name: "Sales",

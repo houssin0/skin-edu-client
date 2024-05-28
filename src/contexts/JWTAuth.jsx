@@ -81,6 +81,8 @@ const login = async (email, password) => {
   });
 
   const data = await response.json();
+  // console.log(data.user); // Add this line
+
   localStorage.setItem('accessToken', data.accessToken); // Store the token in localStorage
   setSession(data.accessToken);
   dispatch({
@@ -90,6 +92,7 @@ const login = async (email, password) => {
       isAuthenticated: true,
     },
   }); 
+  return data.user;
 };
 
   const register = async (name, email, password, userType) => {

@@ -12,18 +12,18 @@ import SocialAccounts from "./SocialAccounts";
 import Statements from "./Statements";
 import TwoStepVerification from "./TwoStepVerification";
 const Tabs = {
-  ApiKeys,
+  // ApiKeys,
   BasicInformation,
-  Billing,
-  ConnectedAccounts,
+  // Billing,
+  // ConnectedAccounts,
   DeleteAccount,
-  Notifications,
+  // Notifications,
   Password,
   Preferences,
   RecentDevices,
-  Referrals,
-  SocialAccounts,
-  Statements,
+  // Referrals,
+  // SocialAccounts,
+  // Statements,
   TwoStepVerification
 };
 export default Tabs;

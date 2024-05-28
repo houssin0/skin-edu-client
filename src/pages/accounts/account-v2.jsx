@@ -79,18 +79,18 @@ const AccountSettings = () => {
                 </StyledButton>)}
             </FlexBox>
           </Card>
-        </Grid>
+        </Grid> 
 
         <Grid item md={9} xs={12}>
           {active === convertToSlug(tabList[0].name) && <UserInfo />}
           {active === convertToSlug(tabList[1].name) && <Experiences />}
-          {active === convertToSlug(tabList[2].name) && <Skills />}
+          {/* {active === convertToSlug(tabList[2].name) && <Skills />}  */}
           {active === convertToSlug(tabList[3].name) && <Password />}
           {active === convertToSlug(tabList[4].name) && <Preferences />}
-          {active === convertToSlug(tabList[5].name) && <ConnectAccounts />}
-          {active === convertToSlug(tabList[6].name) && <RecentDevices />}
-          {active === convertToSlug(tabList[7].name) && <Notifications />}
-          {active === convertToSlug(tabList[8].name) && <SocialAccounts />}
+          {/* {active === convertToSlug(tabList[5].name) && <ConnectAccounts />} */}
+          {/* {active === convertToSlug(tabList[6].name) && <RecentDevices />} */}
+          {/* {active === convertToSlug(tabList[7].name) && <Notifications />} */}
+          {/* {active === convertToSlug(tabList[8].name) && <SocialAccounts />} */}
         </Grid>
       </Grid>
     </Box>;

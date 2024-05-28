@@ -5,10 +5,10 @@ import { H5 } from "components/Typography";
 import Chart from "react-apexcharts"; // --------------------------------------------------------------------------
 
 const chartSeries = [{
-  name: "Leads",
+  name: "Teachers",
   data: [10, 30, 85, 49, 55, 35, 60]
 }, {
-  name: "Customers",
+  name: "Students",
   data: [50, 34, 45, 79, 35, 70, 120]
 }];
 const chartCategories = ["Sat", "Sun", "Mon", "Tue", "Wed", "Thu", "Fri"]; // --------------------------------------------------------------------------
@@ -101,7 +101,7 @@ const LeadVSCustomer = () => {
     height: "100%"
   }}>
       <FlexBetween mb={2}>
-        <H5>Leads VS Customers</H5>
+        <H5>Teachers VS Students</H5>
 
         <AppSelect>
           <option value="month">Month</option>

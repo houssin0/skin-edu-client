@@ -12,6 +12,8 @@ import AppTextField from "components/input-fields/AppTextField";
 import LinearProgress from "@mui/material/LinearProgress";
 import { CameraAlt, KeyboardArrowDown } from "@mui/icons-material";
 import * as Yup from "yup"; // styled components
+import AuthContext from "contexts/JWTAuth";
+import { useContext } from "react";
 
 const ContentWrapper = styled(Box)(({
   theme
@@ -50,22 +52,23 @@ const ImageWrapper = styled(Box)(({
 }));
 
 const BasicInformation = () => {
+    const { user } = useContext(AuthContext);
   const theme = useTheme();
   const initialValues = {
-    firstName: "Pixy",
-    lastName: "Krovasky",
-    email: "uilib@gmail.com",
-    phone: "+443322221111",
-    organization: "UiLib",
-    department: "Develop",
-    country: "usa",
-    state: "New York",
+    firstName: user.name,
+    // lastName: "Krovasky",
+    email: user.email,
+    phone: "",
+    organization: "CHU Casablanca",
+    department: "Dermatologie",
+    country: "Morocco",
+    state: "Casablanca",
     address: "Corverview, Michigan",
     zipCode: 4336
   };
   const validationSchema = Yup.object({
     firstName: Yup.string().min(3, "Must be greater then 3 characters").required("First Name is Required!"),
-    lastName: Yup.string().required("Last Name is Required!"),
+    // lastName: Yup.string().required("Last Name is Required!"),
     email: Yup.string().email("Invalid email address").required("Email is Required!"),
     phone: Yup.string().min(9).required("Phone Number is required!"),
     organization: Yup.string().required("Organization is Required!"),
@@ -120,7 +123,7 @@ const BasicInformation = () => {
 
           <Box mt={2}>
             <H4 fontWeight={600} textAlign="center">
-              Pixy Krovasky
+              {user.name}
             </H4>
 
             <FlexBetween maxWidth={360} flexWrap="wrap" margin="auto" mt={1}>
@@ -130,7 +133,7 @@ const BasicInformation = () => {
                 mr: 1,
                 fontSize: 18
               }} />
-                <Tiny color="text.secondary">Developer</Tiny>
+                <Tiny color="text.secondary">Doctor</Tiny>
               </FlexBox>
 
               <FlexBox alignItems="center">
@@ -139,7 +142,7 @@ const BasicInformation = () => {
                 mr: 1,
                 fontSize: 18
               }} />
-                <Tiny color="text.secondary">New York</Tiny>
+                <Tiny color="text.secondary">Casablanca</Tiny>
               </FlexBox>
 
               <FlexBox alignItems="center">
@@ -172,14 +175,14 @@ const BasicInformation = () => {
                 </FlexBox>
               </Box>
 
-              <FlexBox>
+              {/* <FlexBox>
                 <Button variant="outlined" sx={{
                 marginRight: 1
               }}>
                   Follow
                 </Button>
                 <Button variant="contained">Hire Me</Button>
-              </FlexBox>
+              </FlexBox> */}
             </FlexBetween>
           </Box>
         </ContentWrapper>
@@ -198,9 +201,9 @@ const BasicInformation = () => {
                 <AppTextField fullWidth name="firstName" label="First Name" variant="outlined" onBlur={handleBlur} onChange={handleChange} value={values.firstName} helperText={touched.firstName && errors.firstName} error={Boolean(touched.firstName && errors.firstName)} />
               </Grid>
 
-              <Grid item sm={6} xs={12}>
+              {/* <Grid item sm={6} xs={12}>
                 <AppTextField fullWidth name="lastName" label="Last Name" variant="outlined" onBlur={handleBlur} onChange={handleChange} value={values.lastName} helperText={touched.lastName && errors.lastName} error={Boolean(touched.lastName && errors.lastName)} />
-              </Grid>
+              </Grid> */}
 
               <Grid item sm={6} xs={12}>
                 <AppTextField fullWidth name="email" label="Email" variant="outlined" onBlur={handleBlur} onChange={handleChange} value={values.email} helperText={touched.email && errors.email} error={Boolean(touched.email && errors.email)} />
@@ -223,7 +226,7 @@ const BasicInformation = () => {
                 native: true,
                 IconComponent: KeyboardArrowDown
               }} onBlur={handleBlur} onChange={handleChange} value={values.country} helperText={touched.country && errors.country} error={Boolean(touched.country && errors.country)}>
-                  <option value="usa">United States</option>
+                  <option value="ma">Morocco</option>
                   <option value="uk">United Kingdom</option>
                   <option value="uae">United Arab Emirates</option>
                 </AppTextField>

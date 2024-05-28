@@ -12,10 +12,10 @@ const LeadCard = () => {
   }}>
       <Stack direction="row" justifyContent="space-between" alignItems="center">
         <Box flex={1}>
-          <H6>Leads Converted</H6>
-          <H2 color="primary.main">80%</H2>
+          <H6>Number of Images</H6>
+          <H2 color="primary.main">125</H2>
 
-          <FlexBox alignItems="center" mt={1}>
+          {/* <FlexBox alignItems="center" mt={1}>
             <FlexRowAlign gap={1} sx={{
             width: 24,
             height: 24,
@@ -28,7 +28,7 @@ const LeadCard = () => {
             }} />
             </FlexRowAlign>
             <Tiny fontWeight={600}>56 out of 70</Tiny>
-          </FlexBox>
+          </FlexBox> */}
         </Box>
 
         <Avatar src="/static/illustration/crm-lead.svg" alt="Lead Converted" sx={{

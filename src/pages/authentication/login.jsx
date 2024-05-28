@@ -20,7 +20,7 @@ const Login = () => {
   const [loading, setLoading] = useState(false);
   let navigate = useNavigate();
   const initialValues = {
-    email: "houssin@test.com",
+    email: "houssin@gmail.com",
     password: "houssin",
     submit: null,
     remember: true
@@ -40,16 +40,22 @@ const Login = () => {
   } = useFormik({
     initialValues,
     validationSchema,
-    onSubmit: values => {
+    onSubmit: async (values) => {
       setLoading(true);
-      login(values.email, values.password).then(() => {
+      try {
+        const user = await login(values.email, values.password);
         setLoading(false);
-        toast.success("You Logged In Successfully test");
-        navigate("/dashboard");
-      }).catch(error => {
+        toast.success("You Logged In Successfully", { duration: 4000 });
+  
+        if (user.userType === "admin") {
+          navigate("/dashboard/crm");
+        } else {
+          navigate("/dashboard");
+        }
+      } catch (error) {
         setError(error.message);
         setLoading(false);
-      });
+      }
     }
   });
   return <FlexRowAlign flexDirection="column" sx={{

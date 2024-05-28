@@ -1,10 +1,10 @@
-import { Box, Button, IconButton, styled } from "@mui/material";
+import { Box, Button, styled } from "@mui/material";
 import FlexBetween from "components/flexbox/FlexBetween";
 import FlexBox from "components/flexbox/FlexBox";
 import SearchInput from "components/input-fields/SearchInput";
 import { H6 } from "components/Typography";
-import Apps from "icons/Apps";
-import FormatBullets from "icons/FormatBullets";
+// import Apps from "icons/Apps";
+// import FormatBullets from "icons/FormatBullets";
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { lightTheme } from "../../../constants";
@@ -26,16 +26,14 @@ const SearchArea = ({
   value,
   onChange,
   setValue,
-  selectedItems,
-  gridRoute,
-  listRoute
+  selectedItems
 }) => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const {
     pathname
   } = useLocation();
 
-  const activeColor = path => pathname === path ? "primary.main" : "text.disabled";
+  // const activeColor = path => pathname === path ? "primary.main" : "text.disabled";
 
   return <SecondaryWrapper>
       <SearchInput placeholder="Search..." value={value || ""} onChange={e => {
@@ -57,17 +55,7 @@ const SearchArea = ({
 
         <Box sx={{
         backgroundColor: theme => lightTheme(theme) ? "white" : "background.paper"
-      }}>
-          <IconButton onClick={() => navigate(listRoute)}>
-            <FormatBullets sx={{
-            color: activeColor(listRoute)
-          }} />
-          </IconButton>
-          <IconButton onClick={() => navigate(gridRoute)}>
-            <Apps sx={{
-            color: activeColor(gridRoute)
-          }} />
-          </IconButton>
+      }}>          
         </Box>
       </FlexBox>
     </SecondaryWrapper>;

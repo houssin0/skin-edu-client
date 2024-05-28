@@ -136,10 +136,10 @@ const routes = [
     path: "dashboard",
     element: (
       <AuthGuard>
-          <ApprovedGuard>
+        <ApprovedGuard>
           <DashboardLayout />
-      </ApprovedGuard>
-        </AuthGuard>
+        </ApprovedGuard>
+      </AuthGuard>
 
     ),
     children: [{
@@ -154,10 +154,16 @@ const routes = [
     }, {
       path: "sales-v2",
       element: <SalesV2 />
-    }, {
+    },
+    {
       path: "crm",
-      element: <CRM />
-    }, {
+      element: (
+        <AdminGuard>
+          <CRM />
+        </AdminGuard>
+      )
+    },
+    {
       path: "saas",
       element: <SaaS />
     }, {
@@ -230,8 +236,11 @@ const routes = [
       )
     }, {
       path: "user-list",
-      element:
-        <UserList />
+      element: (
+        <AdminGuard>
+          <UserList />
+        </AdminGuard>
+      )
     }, {
       path: "user-list-v2",
       element: (

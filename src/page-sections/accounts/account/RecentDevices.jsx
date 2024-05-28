@@ -33,6 +33,7 @@ const RecentDevices = () => {
               <TableRow>
                 <HeadTableCell>Browser</HeadTableCell>
                 <HeadTableCell>Device</HeadTableCell>
+                <HeadTableCell>Addresse Ip</HeadTableCell>
                 <HeadTableCell>Location</HeadTableCell>
                 <HeadTableCell>Recent Activity</HeadTableCell>
               </TableRow>
@@ -51,6 +52,8 @@ const RecentDevices = () => {
                     </FlexBox>
                   </BodyTableCell>
                   <BodyTableCell>{item.device}</BodyTableCell>
+                  <BodyTableCell>{item.ip}</BodyTableCell>
+
                   <BodyTableCell>
                     <FlexBox alignItems="center">
                       <H6>{item.location}</H6>
@@ -79,6 +82,7 @@ const activityList = [{
   browser: "Chrome on Windows",
   browserIcon: "/static/browser/chrome.svg",
   device: "Dell XPS 12",
+  ip: "	236.125.56.78",
   location: "New York, USA",
   recentActivity: "Now",
   current: true
@@ -87,6 +91,7 @@ const activityList = [{
   browser: "Mozilla Firefox",
   browserIcon: "/static/browser/mozilla.svg",
   device: "Acer Aspire 300",
+  ip: "236.125.56.79",
   location: "New York, USA",
   recentActivity: "15 June 2020"
 }, {
@@ -94,6 +99,7 @@ const activityList = [{
   browser: "Safari Browser",
   browserIcon: "/static/browser/safari.svg",
   device: "Macbook Pro 2020",
+  ip: "236.125.56.74",
   location: "London, UK",
   recentActivity: "05 October 2020"
 }, {
@@ -101,7 +107,11 @@ const activityList = [{
   browser: "Apple Browser",
   browserIcon: "/static/browser/apple.svg",
   device: "IPhone 13 Pro Max",
+  ip: "236.125.56.74",
   location: "Manchester, UK",
   recentActivity: "05 October 2020"
 }];
+
+
+
 export default RecentDevices;
