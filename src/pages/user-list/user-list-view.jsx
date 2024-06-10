@@ -1,6 +1,6 @@
 import React, { forwardRef, useEffect, useMemo, useRef, useState } from "react";
 import { Box, Card, Checkbox, Stack, styled, Table, TableRow, useTheme, IconButton } from "@mui/material";
-import { Edit, Refresh } from "@mui/icons-material"; // Import the Refresh icon
+import { Edit, Refresh } from "@mui/icons-material";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
 import TableHead from "@mui/material/TableHead";
@@ -13,9 +13,8 @@ import SearchArea from "page-sections/admin-ecommerce/product-list/search-area";
 import columnShape from "page-sections/user-list/columnShape";
 import HeadingArea from "page-sections/user-list/heading-area";
 import { useAsyncDebounce, useGlobalFilter, usePagination, useRowSelect, useSortBy, useTable } from "react-table";
-import EditUserDialog from "./EditUserDialog"; // Import the new component
+import EditUserDialog from "./EditUserDialog";
 
-// Styled components
 const HeadTableCell = styled(TableCell)(({ theme }) => ({
   fontSize: 12,
   fontWeight: 600,
@@ -49,9 +48,11 @@ const SelectCheckBox = forwardRef(({ indeterminate, ...rest }, ref) => {
 const UserListView = () => {
   const [value, setValue] = useState("");
   const [tableData, setTableData] = useState([]);
+  const [filteredData, setFilteredData] = useState([]); // New state for filtered data
+  const [userType, setUserType] = useState(""); // New state for user type
   const [editingUser, setEditingUser] = useState(null);
   const [openEditDialog, setOpenEditDialog] = useState(false);
-  const [loading, setLoading] = useState(false); // Added loading state
+  const [loading, setLoading] = useState(false);
   const theme = useTheme();
   const columns = useMemo(() => columnShape, []);
 
@@ -75,6 +76,20 @@ const UserListView = () => {
     fetchUsers();
   }, []);
 
+  useEffect(() => {
+    const filterData = () => {
+      if (userType === "is_approved") {
+        setFilteredData(tableData.filter(user => !user.is_approved));
+      } else if (userType) {
+        setFilteredData(tableData.filter(user => user.userType === userType));
+      } else {
+        setFilteredData(tableData);
+      }
+    };
+
+    filterData();
+  }, [tableData, userType]);
+
   const {
     getTableProps,
     getTableBodyProps,
@@ -88,7 +103,7 @@ const UserListView = () => {
     selectedFlatRows
   } = useTable({
     columns,
-    data: tableData
+    data: filteredData
   }, useGlobalFilter, useSortBy, usePagination, useRowSelect, hooks => {
     hooks.visibleColumns.push(columns => [{
       id: "selection",
@@ -98,7 +113,7 @@ const UserListView = () => {
   });
 
   const handleChange = (_, currentPageNo) => gotoPage(currentPageNo - 1);
-  const changeTab = (_, newValue) => setValue(newValue);
+  const changeTab = (_, newValue) => setUserType(newValue); // Update userType
 
   const [searchValue, setSearchValue] = useState(state.globalFilter);
   const handleSearch = useAsyncDebounce(value => setGlobalFilter(value || undefined), 200);
@@ -137,7 +152,7 @@ const UserListView = () => {
 
   const handleRefresh = async () => {
     try {
-      setLoading(true); // Set loading to true when refreshing data
+      setLoading(true);
       const accessToken = localStorage.getItem("accessToken");
 
       const response = await fetch('https://myserver.oulkaid-elhoussin.workers.dev/api/users', {
@@ -150,7 +165,7 @@ const UserListView = () => {
     } catch (error) {
       console.error('Failed to refresh users:', error);
     } finally {
-      setLoading(false); // Set loading to false after refreshing data
+      setLoading(false);
     }
   };
 
@@ -158,9 +173,9 @@ const UserListView = () => {
     <Box pt={2} pb={4}>
       <Card sx={{ py: 2 }}>
         <Box px={3}>
-          <HeadingArea value={value} changeTab={changeTab} />
+          <HeadingArea value={userType} changeTab={changeTab} />
           <Box display="flex" alignItems="center">
-            <SearchArea value={searchValue} onChange={handleSearch} setValue={setSearchValue}  />
+            <SearchArea value={searchValue} onChange={handleSearch} setValue={setSearchValue} />
             <IconButton onClick={handleRefresh}>
               <Refresh />
             </IconButton>
@@ -194,7 +209,7 @@ const UserListView = () => {
                         <Edit sx={{ color: "text.disabled", fontSize: 18 }} />
                       </IconButton>
                     </BodyTableCell>
-                    </TableRow>
+                  </TableRow>
                 );
               })}
             </TableBody>
