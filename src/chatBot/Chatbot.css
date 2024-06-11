@@ -5,6 +5,50 @@
   z-index: 1000;
 }
 
+.welcome-message {
+  position: absolute;
+  bottom: calc(100% + 10px); /* Positioning it above the icon */
+  left: -200%; /* Centering horizontally */
+  width: 20vw;
+  transform: translateX(-50%); /* Centering horizontally */
+  background-color: #00b894;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  font-size: 14px;
+  text-align: center;
+}
+
+
+.close-icon {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: rgba(12, 136, 99, 0.7); /* Darker background */
+  color: white;
+  cursor: pointer;
+  border: none;
+  width: 30px; /* Increase width for a larger button */
+  height: 30px; /* Increase height for a larger button */
+  border-radius: 50%; /* Make it circular */
+  font-size: 16px; /* Increase font size */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+
+/* Media Query for Mobile Devices */
+@media (max-width: 768px) {
+  .welcome-message {
+    left: -200%;
+    width: 70vw;
+  }
+}
+
 .chat-icon {
   cursor: pointer;
   width: 50px; /* Adjust size as necessary */
@@ -26,6 +70,9 @@
   flex-direction: column;
   font-family: 'Arial', sans-serif;
 }
+
+/* Rest of the CSS remains the same */
+
 
 .chatbox-header {
   display: flex;

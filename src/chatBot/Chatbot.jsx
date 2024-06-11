@@ -17,10 +17,19 @@ const Chatbot = () => {
   const messagesEndRef = useRef(null);
   const chatIconRef = useRef(null);
   const inputRef = useRef(null); // Add useRef for the input field
-  const [welcomeMessage] = useState({
-    role: "system",
-    content: "Hello, I am SkinEdu Assistance! Ask me anything",
-  });
+  const [welcomeMessageVisible, setWelcomeMessageVisible] = useState(true); // State to track welcome message visibility
+
+  const handleCloseWelcomeMessage = () => {
+    setWelcomeMessageVisible(false);
+    localStorage.setItem('welcomeMessageVisible', 'false'); // Store the visibility state in localStorage
+  };
+
+  useEffect(() => {
+    const storedWelcomeMessageVisible = localStorage.getItem('welcomeMessageVisible');
+    if (storedWelcomeMessageVisible === 'false') {
+      setWelcomeMessageVisible(false);
+    }
+  }, []); // Load visibility state from localStorage on component mount
 
   const handleClickOutside = (event) => {
     if (chatboxRef.current && !chatboxRef.current.contains(event.target) && event.target !== chatIconRef.current) {
@@ -81,6 +90,12 @@ const Chatbot = () => {
 
   return (
     <div className="chatbot-container">
+      {welcomeMessageVisible && (
+        <div className="welcome-message">
+          Bonjour 👋, Je suis Chatbot comment puis-je vous aider ?
+          <button className="close-icon" onClick={handleCloseWelcomeMessage}>X</button>
+        </div>
+      )}
       <img
         className="chat-icon"
         src={chatBotIcon}
@@ -92,42 +107,9 @@ const Chatbot = () => {
         <div className="chatbox" ref={chatboxRef}>
           <div className="chatbox-header">
             <h4>Chatbot</h4>
+            <button className="close-icon" onClick={toggleChatbox}>X</button>
           </div>
-          <div className="chatbox-body">
-            <> {/* Optional rendering for welcome message */}
-              {welcomeMessage && (
-                <div key="welcome" className="message-container assistant">
-                  <div className="message-content">{welcomeMessage.content}</div>
-                </div>
-              )}
-              {messages.map((msg, index) => (
-                <div key={index} className={`message-container ${msg.role}`}>
-                  <div className="message-content">{msg.content}</div>
-                </div>
-              ))}
-            </>
-            {isTyping && (
-              <div className="message-container assistant">
-                <div className="typing-indicator">
-                  <div className="ellipsis"></div>
-                  <div className="ellipsis"></div>
-                  <div className="ellipsis"></div>
-                </div>
-              </div>
-            )}
-            <div ref={messagesEndRef} />
-          </div>
-          <div className="chatbox-footer">
-            <input
-              type="text"
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              onKeyPress={(e) => (e.key === 'Enter' ? handleSend() : null)}
-              placeholder="Type your message..."
-              ref={inputRef} // Reference the input field
-            />
-            <button onClick={handleSend}>Send</button>
-          </div>
+          {/* existing code... */}
         </div>
       )}
     </div>
