@@ -124,12 +124,14 @@ const tabList = [{
   id: 7,
   name: "Recent Devices",
   Icon: DevicesIcon
-}, {
+}, 
+// {
+//   id: 8,
+//   name: "Notifications",
+//   Icon: NotificationsNone
+// }
+{
   id: 8,
-  name: "Notifications",
-  Icon: NotificationsNone
-}, {
-  id: 9,
   name: "Social Accounts",
   Icon: Instagram
 }];

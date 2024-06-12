@@ -97,14 +97,14 @@ const Account = () => {
           {active === tabList[2].name && <TabComponent.Preferences />}
           {active === tabList[3].name && <TabComponent.RecentDevices />}
           {/* {active === tabList[4].name && <TabComponent.Notifications />} */}
-          {active === tabList[5].name && <TabComponent.TwoStepVerification />}
+          {active === tabList[4].name && <TabComponent.TwoStepVerification />}
           {/* {active === tabList[6].name && <TabComponent.ConnectedAccounts />} */}
           {/* {active === tabList[7].name && <TabComponent.SocialAccounts />} */}
           {/* {active === tabList[8].name && <TabComponent.Billing />} */}
           {/* {active === tabList[9].name && <TabComponent.Statements />} */}
           {/* {active === tabList[10].name && <TabComponent.Referrals />} */}
           {/* {active === tabList[11].name && <TabComponent.ApiKeys />} */}
-          {active === tabList[12].name && <TabComponent.DeleteAccount />}
+          {active === tabList[5].name && <TabComponent.DeleteAccount />}
         </Grid>
       </Grid>
     </Box>;
@@ -126,40 +126,44 @@ const tabList = [{
   id: 4,
   name: "Recent Devices",
   Icon: Icons.DevicesApple
-}, {
+}, 
+// {
+//   id: 5,
+//   name: "Notifications",
+//   Icon: Icons.NotificationOutlined
+// }, 
+{
   id: 5,
-  name: "Notifications",
-  Icon: Icons.NotificationOutlined
-}, {
-  id: 6,
   name: "Two-step verification",
   Icon: Icons.Fingerprint
-}, {
-  id: 7,
-  name: "Connected accounts",
-  Icon: Icons.Link
-}, {
-  id: 8,
-  name: "Social Account",
-  Icon: Icons.Instagram
-}, {
-  id: 9,
-  name: "Billing",
-  Icon: Icons.DollarOutlined
-}, {
-  id: 10,
-  name: "Statements",
-  Icon: Icons.FileOutlined
-}, {
-  id: 11,
-  name: "Referrals",
-  Icon: Icons.PremiumOutlined
-}, {
-  id: 12,
-  name: "API Keys",
-  Icon: Icons.Key
-}, {
-  id: 13,
+}, 
+// {
+//   id: 6,
+//   name: "Connected accounts",
+//   Icon: Icons.Link
+// }, {
+//   id: 7,
+//   name: "Social Account",
+//   Icon: Icons.Instagram
+// }, {
+//   id: 8,
+//   name: "Billing",
+//   Icon: Icons.DollarOutlined
+// }, {
+//   id: 9,
+//   name: "Statements",
+//   Icon: Icons.FileOutlined
+// }, {
+//   id: 10,
+//   name: "Referrals",
+//   Icon: Icons.PremiumOutlined
+// }, {
+//   id: 11,
+//   name: "API Keys",
+//   Icon: Icons.Key
+// }, 
+{
+  id: 6,
   name: "Delete account",
   Icon: Icons.DeleteOutlined
 }];

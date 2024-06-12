@@ -4,59 +4,134 @@ import { H5, H6, Small, Tiny } from "components/Typography";
 import AppTextField from "components/input-fields/AppTextField";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-const Dot = styled(Box)(({
-  theme
-}) => ({
+import { useContext, useState } from 'react';
+import { LoadingButton } from "@mui/lab";
+import toast from 'react-hot-toast';
+import useAuth from 'hooks/useAuth';
+import { useNavigate } from 'react-router-dom';
+import AuthContext from "contexts/JWTAuth";
+
+const Dot = styled(Box)(({ theme }) => ({
   width: 8,
   height: 8,
   flexShrink: 0,
   borderRadius: "50%",
   backgroundColor: theme.palette.text.secondary
-}));
+})); 
 
 const Password = () => {
-  const initialValues = {
-    currentPassword: "12345",
-    newPassword: "123456",
-    confirmNewPassword: "123456"
+  const [loading, setLoading] = useState(false);
+  const { logout } = useAuth(); // Use the useAuth hook to get the logout function
+  const navigate = useNavigate();
+  const { user } = useContext(AuthContext);
+
+
+  const formik = useFormik({
+    initialValues: {
+      currentPassword: "",
+      newPassword: "",
+      confirmNewPassword: ""
+    },
+    validationSchema: Yup.object({
+      currentPassword: Yup.string().min(3, "Must be greater than 3 characters").required("Current Password is Required!"),
+      newPassword: Yup.string().min(8).required("New Password is Required!"),
+      confirmNewPassword: Yup.string().oneOf([Yup.ref("newPassword"), null], "Password doesn't match")
+    }),
+    onSubmit: async (values) => {
+      setLoading(true);
+      try {
+        const accessToken = localStorage.getItem("accessToken");
+        const response = await fetch('https://myserver.oulkaid-elhoussin.workers.dev/api/user/update-password', {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': accessToken
+          },
+          body: JSON.stringify({
+            id: user.id,
+            oldPassword: values.currentPassword,
+            newPassword: values.newPassword
+          })
+        });
+    
+        if (response.ok) {
+          toast.success("Password updated successfully");
+          // Logout the user after successful password update
+          logout();
+          // Redirect to the login page
+          navigate('/login');
+        } else {
+          const data = await response.json(); // Get the error message from the server
+          toast.error(data.message || "Failed to update password");
+        }
+      } catch (error) {
+        console.error("Error updating password:", error);
+        toast.error("Error updating password");
+      }
+      setLoading(false);
+    }
+  });
+
+  const handleCancel = () => {
+    formik.resetForm();
   };
-  const validationSchema = Yup.object({
-    currentPassword: Yup.string().min(3, "Must be greater then 3 characters").required("Current Password is Required!"),
-    newPassword: Yup.string().min(8).required("New Password is Required!"),
-    confirmNewPassword: Yup.string().oneOf([Yup.ref("newPassword"), null], "Password doesn't matched")
-  });
-  const {
-    values,
-    errors,
-    handleSubmit,
-    handleChange,
-    handleBlur,
-    touched
-  } = useFormik({
-    initialValues,
-    validationSchema,
-    onSubmit: values => console.log(values)
-  });
-  return <Card>
+
+  return (
+    <Card>
       <H5 padding={3}>Password</H5>
       <Divider />
 
       <Box padding={3}>
         <Grid container spacing={5}>
           <Grid item sm={6} xs={12}>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={formik.handleSubmit}>
               <Stack spacing={4}>
-                <AppTextField fullWidth type="password" variant="outlined" name="currentPassword" label="Current Password" onBlur={handleBlur} onChange={handleChange} value={values.currentPassword} helperText={touched.currentPassword && errors.currentPassword} error={Boolean(touched.currentPassword && errors.currentPassword)} />
+                <AppTextField
+                  fullWidth
+                  type="password"
+                  variant="outlined"
+                  name="currentPassword"
+                  label="Current Password"
+                  onBlur={formik.handleBlur}
+                  onChange={formik.handleChange}
+                  value={formik.values.currentPassword}
+                  helperText={formik.touched.currentPassword && formik.errors.currentPassword}
+                  error={Boolean(formik.touched.currentPassword && formik.errors.currentPassword)}
+                />
 
-                <AppTextField fullWidth type="password" name="newPassword" variant="outlined" label="New Password" onBlur={handleBlur} onChange={handleChange} value={values.newPassword} helperText={touched.newPassword && errors.newPassword} error={Boolean(touched.newPassword && errors.newPassword)} />
-                <AppTextField fullWidth type="password" variant="outlined" name="confirmNewPassword" label="Confirm Password" onBlur={handleBlur} onChange={handleChange} value={values.confirmNewPassword} helperText={touched.confirmNewPassword && errors.confirmNewPassword} error={Boolean(touched.confirmNewPassword && errors.confirmNewPassword)} />
+                <AppTextField
+                  fullWidth
+                  type="password"
+                  name="newPassword"
+                  variant="outlined"
+                  label="New Password"
+                  onBlur={formik.handleBlur}
+                  onChange={formik.handleChange}
+                  value={formik.values.newPassword}
+                  helperText={formik.touched.newPassword && formik.errors.newPassword}
+                  error={Boolean(formik.touched.newPassword && formik.errors.newPassword)}
+                />
+                <AppTextField
+                  fullWidth
+                  type="password"
+                  variant="outlined"
+                  name="confirmNewPassword"
+                  label="Confirm Password"
+                  onBlur={formik.handleBlur}
+                  onChange={formik.handleChange}
+                  value={formik.values.confirmNewPassword}
+                  helperText={formik.touched.confirmNewPassword && formik.errors.confirmNewPassword}
+                  error={Boolean(formik.touched.confirmNewPassword && formik.errors.confirmNewPassword)}
+                />
               </Stack>
 
               <Stack direction="row" spacing={3} mt={4}>
-                <Button type="submit" variant="contained">
+                <LoadingButton type="submit" variant="contained" loading={loading}>
                   Save Changes
+                </LoadingButton>
+                <Button variant="outlined" onClick={handleCancel}>
+                  Cancel
                 </Button>
-                <Button variant="outlined">Cancel</Button>
               </Stack>
             </form>
           </Grid>
@@ -99,7 +174,8 @@ const Password = () => {
           </Grid>
         </Grid>
       </Box>
-    </Card>;
+    </Card>
+  );
 };
 
 export default Password;

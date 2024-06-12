@@ -27,7 +27,7 @@ const PopoverLayout = props => {
       <H4 fontWeight="700" p={2}>
         {title || "Notifications"}
       </H4>
-      <Divider />
+      <Divider /> 
 
       {children}
 

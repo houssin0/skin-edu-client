@@ -33,7 +33,7 @@ const Password = () => {
 
         <Box my={3}>
           <H6>{t("Password requirements:")}</H6>
-          <Tiny fontWeight={500} color="text.secondary">
+          <Tiny fontWeight={500} color="text.secondary"> 
             Ensure that these requirements are met:
           </Tiny>
           <ul>

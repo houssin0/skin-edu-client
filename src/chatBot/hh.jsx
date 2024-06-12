@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+my code is working perfectly, i want to add a close iconto close the message of "Bonjour 👋, Je suis Chatbot comment puis-je vous aider ?", can you add it to my code,  don't touch the chatbot, only the message above the icon: import React, { useState, useRef, useEffect } from 'react';
 import './Chatbot.css'; // Create a corresponding CSS file for styling
 import chatBotIcon from './chat-bot.gif'; // Ensure this import path is correct
 
@@ -21,19 +21,6 @@ const Chatbot = () => {
     role: "system",
     content: "Hello, I am SkinEdu Assistance! Ask me anything",
   });
-  const [welcomeMessageVisible, setWelcomeMessageVisible] = useState(false); // State to track welcome message visibility
-
-  const handleCloseWelcomeMessage = () => {
-    setWelcomeMessageVisible(false);
-    localStorage.setItem('welcomeMessageVisible', 'false'); // Store the visibility state in localStorage
-  };
-
-  useEffect(() => {
-    const storedWelcomeMessageVisible = localStorage.getItem('welcomeMessageVisible');
-    if (storedWelcomeMessageVisible !== 'false') {
-      setWelcomeMessageVisible(true);
-    }
-  }, []); // Load visibility state from localStorage on component mount
 
   const handleClickOutside = (event) => {
     if (chatboxRef.current && !chatboxRef.current.contains(event.target) && event.target !== chatIconRef.current) {
@@ -94,12 +81,9 @@ const Chatbot = () => {
 
   return (
     <div className="chatbot-container">
-      {welcomeMessageVisible && (
-        <div className="welcome-message">
-          Bonjour 👋, Je suis SkinEdu comment puis-je vous aider ?
-          <button className="close-icon" onClick={handleCloseWelcomeMessage}>X</button>
-        </div>
-      )}
+      <div className="welcome-message">
+        Bonjour 👋, Je suis Chatbot comment puis-je vous aider ?
+      </div>
       <img
         className="chat-icon"
         src={chatBotIcon}
@@ -110,7 +94,7 @@ const Chatbot = () => {
       {isOpen && (
         <div className="chatbox" ref={chatboxRef}>
           <div className="chatbox-header">
-            <h4>Assistant</h4>
+            <h4>Chatbot</h4>
           </div>
           <div className="chatbox-body">
             <> {/* Optional rendering for welcome message */}
@@ -154,3 +138,194 @@ const Chatbot = () => {
 };
 
 export default Chatbot;
+and this is the styling: .chatbot-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.welcome-message {
+  position: absolute;
+  bottom: calc(100% + 10px); /* Positioning it above the icon */
+  left: -200%; /* Centering horizontally */
+  width: 20vw;
+  transform: translateX(-50%); /* Centering horizontally */
+  background-color: #00b894;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  font-size: 14px;
+  text-align: center;
+}
+
+/* Media Query for Mobile Devices */
+@media (max-width: 768px) {
+  .welcome-message {
+    left: -200%;
+    width: 70vw;
+  }
+}
+
+.chat-icon {
+  cursor: pointer;
+  width: 50px; /* Adjust size as necessary */
+  height: 50px; /* Adjust size as necessary */
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.chatbox {
+  position: absolute;
+  bottom: 60px;
+  right: 0;
+  width: 350px; /* Updated width */
+  height: 400px; /* Updated height */
+  background: #f8f9fa;
+  border-radius: 20px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Added shadow */
+  display: flex;
+  flex-direction: column;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Rest of the CSS remains the same */
+
+
+.chatbox-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  background: #00b894;
+  color: white;
+  border-radius: 20px 20px 0 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Added shadow */
+}
+
+.chatbox-body {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #00b894 #f8f9fa;
+}
+
+.chatbox-body::-webkit-scrollbar {
+  width: 8px;
+}
+
+.chatbox-body::-webkit-scrollbar-track {
+  background: #f8f9fa;
+}
+
+.chatbox-body::-webkit-scrollbar-thumb {
+  background-color: #00b894;
+  border-radius: 10px;
+  border: 2px solid #f8f9fa;
+}
+
+.message-container {
+  display: flex;
+  margin: 10px 0;
+  font-size: 14px; /* Adjusted font size */
+  animation: fadeIn 0.5s ease-in-out; /* Added animation */
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.message-container.user {
+  justify-content: flex-end; /* Adjusted alignment */
+}
+
+.message-container.assistant {
+  justify-content: flex-start; /* Adjusted alignment */
+}
+
+.message-content {
+  padding: 10px;
+  border-radius: 10px;
+  max-width: 80%;
+  word-wrap: break-word;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Added shadow */
+}
+
+.message-container.user .message-content {
+  background: #0984e3;
+  color: white;
+  border-bottom-right-radius: 0;
+}
+
+.message-container.assistant .message-content {
+  background: #dfe6e9;
+  color: black;
+  border-bottom-left-radius: 0;
+}
+
+.chatbox-footer {
+  display: flex;
+  padding: 10px;
+  background: #f8f9fa;
+  border-radius: 0 0 20px 20px;
+  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1); /* Added shadow */
+}
+
+.chatbox-footer input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  margin-right: 10px;
+  font-size: 14px; /* Adjusted font size */
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1); /* Added shadow */
+}
+
+.chatbox-footer button {
+  padding: 10px 20px;
+  background: #00b894;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px; /* Adjusted font size */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Added shadow */
+}
+
+/* Typing Indicator */
+.typing-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 10px;
+}
+
+.typing-indicator .ellipsis {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin: 0 2px;
+  background-color: #9baeb6;
+  border-radius: 50%;
+  animation: pulse 1.5s infinite;
+}
+
+.typing-indicator .ellipsis:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.typing-indicator .ellipsis:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
