@@ -1,7 +1,8 @@
-import { Box, Grid, useTheme } from "@mui/material";
-import ChartIcon from "icons/ChartIcon";
-import CrownIcon from "icons/CrownIcon";
-import LeafIcon from "icons/LeafIcon";
+import { Box, Grid } from "@mui/material";
+
+// import ChartIcon from "icons/ChartIcon";
+// import CrownIcon from "icons/CrownIcon";
+// import LeafIcon from "icons/LeafIcon";
 // import CourseStatus from "page-sections/dashboards/learning-management/CourseStatus";
 // import Downloads from "page-sections/dashboards/learning-management/Downloads";
 // import Footer from "page-sections/dashboards/learning-management/Footer";
@@ -13,23 +14,23 @@ import UpgradeCard from "page-sections/dashboards/learning-management/UpgradeCar
 import WelcomeCard from "page-sections/dashboards/learning-management/WelcomeCard";
 
 const LearningManagement = () => {
-  const theme = useTheme();
-  const learningCardList = [{
-    price: 1023,
-    Icon: ChartIcon,
-    title: "Course in Progress",
-    color: theme.palette.info.main
-  }, {
-    price: 1250,
-    title: "Enrolled Courses",
-    Icon: LeafIcon,
-    color: theme.palette.warning.main
-  }, {
-    price: 1450,
-    Icon: CrownIcon,
-    title: "Course Completed",
-    color: theme.palette.primary.main
-  }];
+  // const theme = useTheme();
+  // const learningCardList = [{
+  //   price: 1023,
+  //   Icon: ChartIcon,
+  //   title: "Course in Progress",
+  //   color: theme.palette.info.main
+  // }, {
+  //   price: 1250,
+  //   title: "Enrolled Courses",
+  //   Icon: LeafIcon,
+  //   color: theme.palette.warning.main
+  // }, {
+  //   price: 1450,
+  //   Icon: CrownIcon,
+  //   title: "Course Completed",
+  //   color: theme.palette.primary.main
+  // }];
   return <Box pb={4} pt={2}>
       <Grid container spacing={3}>
         <Grid item md={8} xs={12}>
@@ -44,11 +45,11 @@ const LearningManagement = () => {
           <Results />
         </Grid> */}
 
-        <Grid item md={4} xs={12}>
+        <Grid item xs={6}>
           <StudyTime />
         </Grid>
 
-        <Grid item md={4} xs={12}>
+        <Grid item xs={6}>
           <UpcomingTask />
         </Grid>
 

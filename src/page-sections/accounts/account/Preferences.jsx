@@ -1,6 +1,6 @@
 import { KeyboardArrowDown } from "@mui/icons-material";
 import { Box, Button, Card, Divider, Grid, Stack, Switch } from "@mui/material";
-import AppCheckBox from "components/AppCheckBox";
+// import AppCheckBox from "components/AppCheckBox";
 import { H5, H6, Tiny } from "components/Typography";
 import AppTextField from "components/input-fields/AppTextField";
 
@@ -17,8 +17,8 @@ const Preferences = () => {
             IconComponent: KeyboardArrowDown
           }}>
               <option value="english">English</option>
-              <option value="bangla">Bangla</option>
-              <option value="hindi">Hindi</option>
+              <option value="bangla">Français</option>
+              {/* <option value="hindi">Hindi</option> */}
             </AppTextField>
           </Grid>
 
@@ -55,7 +55,7 @@ const Preferences = () => {
       <H5 padding={3}>Email Preferences</H5>
       <Divider />
 
-      <Stack spacing={2} padding={3}>
+      {/* <Stack spacing={2} padding={3}>
         <Stack direction="row" spacing={2}>
           <AppCheckBox />
           <Box>
@@ -92,7 +92,7 @@ const Preferences = () => {
             </Tiny>
           </Box>
         </Stack>
-      </Stack>
+      </Stack> */}
 
       <Stack direction="row" spacing={3} padding={3}>
         <Button variant="contained">Save Changes</Button>

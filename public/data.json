@@ -1,0 +1,759 @@
+[
+  {
+    "id": 17,
+    "title": "Abcès cutané",
+    "description": "Rouge, douloureux, l’abcès cutané est une infection de la peau due à une collection purulente.",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/9kUArYhk7n.jpeg",
+    "date": "2024-05-10 17:29:29",
+    "diseaseTitle": "Abcès cutané"
+  }, 
+  {
+    "id": 18,
+    "title": "Abcès cutané nécrotique",
+    "description": "Abcès cutané nécrotique à Staphylococcus aureus résistant à la méticilline (SARM) sécréteur d’une toxine de Panton-Valentine (PVL) compliqué d’une bactériémie et de localisations cutanées secondaires chez un homme séropositif pour le VIH.",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/SCuLVaXuzi.jpg",
+    "date": "2024-05-10 17:29:56",
+    "diseaseTitle": "Abcès cutané"
+  },
+  {
+    "id": 19,
+    "title": "Abcès de la marge anale",
+    "description": "Un abcès anal est une cavité remplie de pus, située à proximité de l’anus ou du rectum. Elle est le plus souvent la conséquence de l’infection d’une petite glande normalement présente à l’intérieur de l’anus.",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/BIK8Ku_cWq.jpg",
+    "date": "2024-05-10 17:30:40",
+    "diseaseTitle": "Abcès cutané"
+  },
+ 
+  {
+    "id": 21,
+    "title": "Anthrax",
+    "description": "Le charbon est une infection zoonotique causée par Bacillus anthracis. Il s'agit principalement d'une infection d'animaux herbivores et infecte rarement les humains dans le monde occidental, bien qu'elle soit plus courante dans certaines parties d'Afrique et d'Asie. La majeure partie du charbon est cutanée (95 %) ; les cas restants sont par inhalation (5 %) et gastro-intestinaux (< 1 %). L'anthrax provoqué par l'inhalation est généralement mortel et les symptômes apparaissent généralement quelques jours après l'exposition.",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/SwAKAFc6tc.jpg",
+    "date": "2024-05-10 17:33:28",
+    "diseaseTitle": "Anthrax"
+  },
+  {
+    "id": 22,
+    "title": "Anthrax",
+    "description": "L'anthrax, également connu sous le nom de maladie du charbon, est une infection bactérienne causée par Bacillus anthracis. Cette maladie peut affecter les humains et les animaux. Les symptômes varient en fonction de la voie d'infection, mais peuvent inclure des lésions cutanées, des difficultés respiratoires, des fièvres et dans certains cas, une septicémie potentiellement mortelle.",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/f1wUHdK6gV.jpg",
+    "date": "2024-05-10 17:33:53",
+    "diseaseTitle": "Anthrax"
+  },
+  {
+    "id": 23,
+    "title": "Anthrax",
+    "description": "L'anthrax est une maladie infectieuse causée par la bactérie Bacillus anthracis. Elle peut se présenter sous différentes formes, notamment cutanée, pulmonaire et gastro-intestinale, en fonction de la voie d'entrée de la bactérie dans le corps.",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/iKzVGEvZa4.jpg",
+    "date": "2024-05-10 17:34:30",
+    "diseaseTitle": "Anthrax"
+  },
+  {
+    "id": 24,
+    "title": "Lyme non annulaire",
+    "description": "La maladie de Lyme est une infection bactérienne causée par la bactérie Borrelia burgdorferi, transmise par les tiques du genre Ixodes. Cette maladie peut affecter plusieurs systèmes du corps humain, notamment la peau, les articulations, le système nerveux et le cœur. La manifestation la plus courante de la maladie de Lyme est l'érythème migrant, une éruption cutanée rouge en forme d'anneau qui apparaît généralement autour du site de la piqûre de tique infectée. Cependant, il est important de noter que tous les cas de maladie de Lyme ne présentent pas cette éruption cutanée caractéristique.",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/i0DUXBsYxs.jpg",
+    "date": "2024-05-10 17:37:39",
+    "diseaseTitle": "BORRÉLIOSE"
+  },
+  {
+    "id": 25,
+    "title": "Candidose Digestive",
+    "description": "La candidose digestive souvent nommée candida digestif est la prolifération de champignons Candida albicans dans le tube digestif.",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/YGRsuRlJ_R.jpg",
+    "date": "2024-05-10 17:38:18",
+    "diseaseTitle": "CANDIDOSES"
+  },
+  {
+    "id": 26,
+    "title": "CANDIDOSES",
+    "description": "La candidose est une infection fongique causée par des levures du genre Candida. Ces levures peuvent se retrouver naturellement dans le corps humain, notamment dans la bouche, le tube digestif et le système génito-urinaire, sans causer de problèmes. Cependant, sous certaines conditions, telles qu'un affaiblissement du système immunitaire, un déséquilibre hormonal, ou la prise d'antibiotiques qui perturbent l'équilibre naturel des bactéries dans le corps, les levures Candida peuvent proliférer de manière excessive et entraîner une infection.",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/0vUw4BIVvc.jpeg",
+    "date": "2024-05-10 17:38:48",
+    "diseaseTitle": "CANDIDOSES"
+  },
+  {
+    "id": 27,
+    "title": "COXSAKIE",
+    "description": "Les virus Coxsackie sont les virus les plus courants responsables de la maladie pieds-mains-bouche (HFMD), une maladie courante chez les nourrissons et les enfants.",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/9j2_2wYTSF.jpg",
+    "date": "2024-05-10 17:42:56",
+    "diseaseTitle": "COXSAKIE"
+  },
+  {
+    "id": 28,
+    "title": "COXSAKIE",
+    "description": "Les virus Coxsackie sont les virus les plus courants responsables de la maladie pieds-mains-bouche (HFMD), une maladie courante chez les nourrissons et les enfants.",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/Cr2i4kF9eN.jpg",
+    "date": "2024-05-10 17:42:56",
+    "diseaseTitle": "COXSAKIE"
+  },
+  {
+    "id": 29,
+    "title": "Dermatophytoses de la peau glabre",
+    "description": "Les dermatophytoses de la peau glabre sont des infections fongiques superficielles de la peau, principalement causées par des champignons dermatophytes. Elles se développent sur des zones de la peau sans poils, comme le visage, le cou, les mains et les pieds.",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/dEbFS621sU.jpg",
+    "date": "2024-05-10 17:45:46",
+    "diseaseTitle": "DERMATOPHYTOSES DE LA PEAU GLABRE"
+  },
+  {
+    "id": 30,
+    "title": "DERMATOPHYTOSES UNGUÉALES",
+    "description": "Les dermatophytoses unguéales, aussi appelées onychomycoses, sont des infections fongiques des ongles, couramment causées par des champignons dermatophytes.",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/Kg6SbAESSt.jpg",
+    "date": "2024-05-10 17:48:07",
+    "diseaseTitle": "DERMATOPHYTOSES UNGUÉALES"
+  },
+  {
+    "id": 31,
+    "title": "DERMATOPHYTOSES UNGUÉALES",
+    "description": "Les dermatophytoses unguéales, aussi appelées onychomycoses, sont des infections fongiques des ongles, couramment causées par des champignons dermatophytes.",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/pcyZd4ri9_.jpg",
+    "date": "2024-05-10 17:48:07",
+    "diseaseTitle": "DERMATOPHYTOSES UNGUÉALES"
+  },
+  {
+    "id": 32,
+    "title": "DERMATITE SÉBORRHÉIQUE",
+    "description": "La dermite séborrhéique est une affection dermatologique inflammatoire chronique qui se manifeste par des plaques rouges recouvertes de squames blanchâtres, se développant au niveau des zones riches en sébum du visage et du cuir chevelu, comme les ailes du nez ou les sourcils.",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/-xaqyqV-rE.jpg",
+    "date": "2024-05-10 17:48:48",
+    "diseaseTitle": "DERMATITE SÉBORRHÉIQUE"
+  },
+  {
+    "id": 33,
+    "title": "ECTHYMA",
+    "description": "L'ecthyma est une infection cutanée caractérisée par des plaies en croûte sous lesquelles se forment des ulcères. Il s’agit d’une forme profonde d’impétigo, car les mêmes bactéries responsables de l’infection sont impliquées. L'ecthyma provoque des érosions plus profondes de la peau dans le derme.",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/_lHEQmO_x5.jpg",
+    "date": "2024-05-10 17:49:46",
+    "diseaseTitle": "ECTHYMA"
+  },
+  {
+    "id": 34,
+    "title": "ÉRYSIPÈLE",
+    "description": "L'érysipèle est une forme superficielle de cellulite, une infection bactérienne potentiellement grave affectant la peau. L'érysipèle affecte le derme supérieur et s'étend dans les lymphatiques cutanés superficiels.",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/63mHWfGFjj.jpg",
+    "date": "2024-05-10 17:50:13",
+    "diseaseTitle": "ÉRYSIPÈLE"
+  },
+  {
+    "id": 35,
+    "title": "ÉRYTHÈME POLYMORPHE",
+    "description": "L’érythème polymorphe est une affection cutanéo-muqueuse à médiation immunitaire, généralement spontanément résolutive, caractérisée par des lésions « cibles ». Une atteinte muqueuse significative distingue l'érythème polymorphe majeur du mineur multiforme. Les épisodes peuvent être isolés, récurrents ou persistants.",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/6q47xgknrO.jpg",
+    "date": "2024-05-10 17:50:49",
+    "diseaseTitle": "ÉRYTHÈME POLYMORPHE"
+  },
+  {
+    "id": 36,
+    "title": "ÉRYTHÈME POLYMORPHE",
+    "description": "L'érythème polymorphe est une affection cutanée caractérisée par l'apparition soudaine de lésions cutanées rouges et en relief, souvent sous forme de plaques ou de papules, qui peuvent évoluer vers des lésions en forme de cible avec un centre plus foncé entouré d'un anneau plus clair. Cette affection est généralement causée par une réaction hypersensible à certaines infections, médicaments ou substances, bien que dans de nombreux cas, la cause spécifique reste inconnue.",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/Ff0ywW0Diw.jpg",
+    "date": "2024-05-10 17:51:12",
+    "diseaseTitle": "ÉRYTHÈME POLYMORPHE"
+  },
+  {
+    "id": 37,
+    "title": "ÉRYTHÈME POLYMORPHE",
+    "description": "Dans cette forme moins fréquente, des ampoules remplies de liquide peuvent se former sur les lésions cutanées, en plus des plaques rouges typiques. Ces ampoules peuvent être douloureuses et peuvent augmenter le risque d'infection.",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/dZLu35QPIQ.jpg",
+    "date": "2024-05-10 17:51:35",
+    "diseaseTitle": "ÉRYTHÈME POLYMORPHE"
+  },
+  {
+    "id": 38,
+    "title": "ÉRYTHÈME POLYMORPHE",
+    "description": "Certaines personnes peuvent présenter des épisodes récurrents d'érythème polymorphe, avec des périodes d'exacerbation et de rémission. Ces épisodes peuvent être déclenchés par des infections récurrentes, des réactions médicamenteuses ou d'autres facteurs déclenchants.",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/zo1DPVTiOJ.jpg",
+    "date": "2024-05-10 17:53:00",
+    "diseaseTitle": "ÉRYTHÈME POLYMORPHE"
+  },
+  {
+    "id": 39,
+    "title": "ERYTHRASMA",
+    "description": "L'érythrasma se présente sous la forme de taches roses ou brunes bien définies avec de fines desquamations et des fissures superficielles. De légères démangeaisons peuvent être présentes. Les sites courants d’érythrasma sont les aisselles, l’aine et entre les orteils.",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/s3yJzFCskn.jpg",
+    "date": "2024-05-10 17:54:49",
+    "diseaseTitle": "ERYTHRASMA"
+  },
+  {
+    "id": 40,
+    "title": "ERYTHRASMA",
+    "description": "L'érythrasma est une infection cutanée bactérienne causée par Corynebacterium minutissimum. Cette infection affecte principalement les plis de la peau, tels que les aisselles, l'aine, les orteils et les plis sous les seins. Elle se caractérise par l'apparition de petites taches brunâtres ou rougeâtres qui fusionnent pour former des plaques squameuses et légèrement surélevées.",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/3czRrcKb4V.jpg",
+    "date": "2024-05-10 17:55:19",
+    "diseaseTitle": "ERYTHRASMA"
+  },
+  {
+    "id": 41,
+    "title": "FASCITE NÉCROSANTE",
+    "description": "La fasciite nécrosante est une infection rare de la peau et des tissus sous-cutanés profonds, se propageant le long des fascia et du tissu adipeux.",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/KSIndrBEew.jpg",
+    "date": "2024-05-10 17:57:06",
+    "diseaseTitle": "FASCITE NÉCROSANTE"
+  },
+  {
+    "id": 42,
+    "title": "FASCITE NÉCROSANTE",
+    "description": "La fasciite nécrosante, parfois appelée maladie mangeuse de chair, est une infection bactérienne rare mais grave qui affecte les tissus sous-cutanés, y compris le fascia, une membrane de tissu conjonctif qui entoure les muscles, les nerfs et les vaisseaux sanguins. Cette infection peut se propager rapidement et entraîner une nécrose tissulaire et une défaillance des organes si elle n'est pas traitée rapidement.",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/dFsplj7_8Z.jpg",
+    "date": "2024-05-10 17:57:31",
+    "diseaseTitle": "FASCITE NÉCROSANTE"
+  },
+  {
+    "id": 43,
+    "title": "FOLLICULITE",
+    "description": "La folliculite est une inflammation des follicules pileux, qui cause des petites bosses rouges ou pustules autour des follicules pileux.  Ces bosses peuvent être douloureuses ou prurigineuses.",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/PxNDh14UiJ.png",
+    "date": "2024-05-10 17:59:59",
+    "diseaseTitle": "FOLLICULITE"
+  },
+  {
+    "id": 44,
+    "title": "FOLLICULITE",
+    "description": "Pustules non infiltrées avec érythème péri-folliculaire, centrées par un poil",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/5911t0YMxv.jpg",
+    "date": "2024-05-10 18:00:27",
+    "diseaseTitle": "FOLLICULITE"
+  },
+  {
+    "id": 45,
+    "title": "FOLLICULITES À MALASSEZIA",
+    "description": "La folliculite à Malassezia, également connue sous le nom de folliculite à pityrosporum, est une infection de l'unité pilosébacée provoquée par des levures lipophiles Malassezia. Les levures Malassezia sont des habitants normaux de la surface de la peau humaine et ne provoquent des maladies que dans des conditions spécifiques.",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/u_tndd9s8B.jpg",
+    "date": "2024-05-10 18:01:24",
+    "diseaseTitle": "FOLLICULITES À MALASSEZIA"
+  },
+  {
+    "id": 46,
+    "title": "FOLLICULITES À MALASSEZIA",
+    "description": "La folliculite à Malassezia est une infection cutanée causée par une levure du genre Malassezia. Cette infection se caractérise par l'inflammation des follicules pileux, ce qui entraîne l'apparition de petites papules rouges ou de pustules autour des follicules pileux. Malassezia est une levure qui fait normalement partie de la flore cutanée normale chez l'homme, mais dans certaines conditions, elle peut proliférer et causer des infections.",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/CcQSyGUNWD.jpg",
+    "date": "2024-05-10 18:01:55",
+    "diseaseTitle": "FOLLICULITES À MALASSEZIA"
+  },
+  {
+    "id": 47,
+    "title": "FOLLICULITES À MALASSEZIA",
+    "description": "Les folliculites à Malassezia surviennent le plus souvent dans les zones du corps où les glandes sébacées sont plus actives, telles que le visage, le cuir chevelu, le haut du dos et la poitrine. Les facteurs de risque incluent la chaleur et l'humidité, le port de vêtements serrés, l'utilisation prolongée d'antibiotiques ou de stéroïdes topiques, ainsi que les conditions médicales qui affaiblissent le système immunitaire.",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/XAsSYuAVED.jpg",
+    "date": "2024-05-10 18:02:22",
+    "diseaseTitle": "FOLLICULITES À MALASSEZIA"
+  },
+  {
+    "id": 48,
+    "title": "FURONCLES",
+    "description": "La folliculite à Malassezia, également connue sous le nom de folliculite à pityrosporum, est une infection de l'unité pilosébacée provoquée par des levures lipophiles Malassezia. Les levures Malassezia sont des habitants normaux de la surface de la peau humaine et ne provoquent des maladies que dans des conditions spécifiques.",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/_AncgNW1pc.jpg",
+    "date": "2024-05-10 18:03:04",
+    "diseaseTitle": "FURONCLES"
+  },
+  {
+    "id": 49,
+    "title": "FURONCLES",
+    "description": "Les furoncles peuvent survenir n'importe où sur le corps, mais ils sont plus fréquents dans les zones où les poils sont présents et où le frottement ou la transpiration est plus important, comme le visage, le cou, les épaules, les aisselles, l'aine et les fesses.",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/gTz0aPrTtq.jpg",
+    "date": "2024-05-10 18:06:17",
+    "diseaseTitle": "FURONCLES"
+  },
+  {
+    "id": 50,
+    "title": "GALE",
+    "description": "La gale humaine est une affection contagieuse de la peau, qui se transmet le plus souvent par contact humain direct.",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/uJk67pHRLu.jpg",
+    "date": "2024-05-10 18:07:25",
+    "diseaseTitle": "GALE"
+  },
+  {
+    "id": 51,
+    "title": "GALE",
+    "description": "La gale, également connue sous le nom de scabiose, est une maladie de la peau causée par un acarien microscopique appelé Sarcoptes scabiei. Cette infection est hautement contagieuse et se propage par contact direct avec une personne infectée ou par le partage d'articles contaminés tels que des vêtements, des draps ou des serviettes.",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/7ljc6V4Fe0.jpg",
+    "date": "2024-05-10 18:07:42",
+    "diseaseTitle": "GALE"
+  },
+  {
+    "id": 52,
+    "title": "GALE",
+    "description": "Les symptômes de la gale comprennent des démangeaisons sévères, surtout la nuit, qui sont souvent plus intenses dans les zones où la peau est plus fine, telles que les plis des poignets, des coudes, des aisselles, de la taille, des fesses et des organes génitaux. De petites bosses rouges, des sillons ou des lignes peuvent également apparaître sur la peau, indiquant les trajets de déplacement des acariens.",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/dxeMUEqivJ.jpg",
+    "date": "2024-05-10 18:07:59",
+    "diseaseTitle": "GALE"
+  },
+  {
+    "id": 53,
+    "title": "HERPES",
+    "description": "Le HSV-1 est le virus le plus souvent associé à l'herpès labial, qui provoque des cloques douloureuses sur ou autour des lèvres. Ces cloques peuvent s'ouvrir et former des croûtes avant de guérir. L'herpès labial est souvent transmis par contact direct avec une personne infectée, généralement par des baisers ou le partage d'objets contaminés.",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/9VFOo6fcZs.jpg",
+    "date": "2024-05-10 18:08:20",
+    "diseaseTitle": "HERPES"
+  },
+  {
+    "id": 54,
+    "title": "HERPES",
+    "description": "Le HSV-2 est généralement associé à l'herpès génital, qui provoque des cloques douloureuses sur ou autour des organes génitaux, de l'anus ou des cuisses. Cette forme d'herpès est généralement transmise par contact sexuel avec une personne infectée.",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/nINwBl_1jx.jpg",
+    "date": "2024-05-10 18:08:40",
+    "diseaseTitle": "HERPES"
+  },
+  {
+    "id": 55,
+    "title": "IMPÉTIGO",
+    "description": "L’impétigo est une infection de la peau due à une bactérie très fréquente chez les enfants en bas-âge.",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/avgR7em4sc.jpg",
+    "date": "2024-05-10 18:09:02",
+    "diseaseTitle": "IMPÉTIGO"
+  },
+  {
+    "id": 56,
+    "title": "IMPÉTIGO",
+    "description": "L'impétigo est une infection cutanée bactérienne très contagieuse, principalement causée par les bactéries Staphylococcus aureus ou Streptococcus pyogenes. Elle est plus fréquente chez les enfants, mais peut également affecter les adultes.",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/Ox5LGMfq27.jpg",
+    "date": "2024-05-10 18:09:30",
+    "diseaseTitle": "IMPÉTIGO"
+  },
+  {
+    "id": 57,
+    "title": "IMPÉTIGO",
+    "description": "Les symptômes typiques de l'impétigo comprennent des lésions cutanées rouges ou rose pâle, souvent remplies de liquide clair ou de pus, qui se rompent et forment des croûtes jaunâtres ou brunâtres. Ces lésions peuvent apparaître n'importe où sur le corps, mais sont plus courantes autour du nez et de la bouche, ainsi que sur les bras et les jambes. L'impétigo peut être légère et localisé (impétigo non bulleux) ou plus étendu avec la formation de bulles remplies de liquide (impétigo bulleux).",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/QcDEVb88Gn.jpg",
+    "date": "2024-05-10 18:09:46",
+    "diseaseTitle": "IMPÉTIGO"
+  },
+  {
+    "id": 58,
+    "title": "KAPOSI JULIUSBERG",
+    "description": "La maladie de Kaposi est un cancer rare qui se développe dans les vaisseaux sanguins ou lymphatiques.",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/jQS2Nq7p_R.jpeg",
+    "date": "2024-05-10 18:10:33",
+    "diseaseTitle": "KAPOSI JULIUSBERG"
+  },
+  {
+    "id": 59,
+    "title": "KAPOSI JULIUSBERG",
+    "description": "Le purpura fulminans, également connu sous le nom de syndrome de Kaposi-Juliusberg, est une maladie rare mais grave caractérisée par une coagulation intravasculaire disséminée (CID), entraînant une thrombose des vaisseaux sanguins de petit et moyen calibre. Cela conduit à une ischémie tissulaire, une nécrose et des hémorragies cutanées, ainsi qu'à une défaillance multi-viscérale.",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/ICYxisRBTC.jpg",
+    "date": "2024-05-10 18:10:51",
+    "diseaseTitle": "KAPOSI JULIUSBERG"
+  },
+  {
+    "id": 60,
+    "title": "KAPOSI JULIUSBERG",
+    "description": "Les symptômes du purpura fulminans peuvent se manifester soudainement et incluent une fièvre élevée, une hypotension artérielle, une peau rougeâtre violacée, des taches cutanées violacées ou des ecchymoses qui peuvent se développer rapidement en des zones de nécrose, ainsi que des signes de dysfonctionnement d'organes.",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/kv0wpRzEhV.jpg",
+    "date": "2024-05-10 18:11:14",
+    "diseaseTitle": "KAPOSI JULIUSBERG"
+  },
+  {
+    "id": 61,
+    "title": "KAPOSI JULIUSBERG",
+    "description": "Attribuée au virus Herpes simplex, accessoirement à la varicelle, autrefois à la vaccine, dans le cadre de la vaccination antivariolique. Elle se manifeste par une éruption apparaissant comme une complication d'un eczéma infantile, chez un enfant en bas âge, entre 6 mois et 2 ans.",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/eaCbTbsOYV.jpg",
+    "date": "2024-05-10 18:11:41",
+    "diseaseTitle": "KAPOSI JULIUSBERG"
+  },
+  {
+    "id": 62,
+    "title": "ORF",
+    "description": "L'ORF est une infection virale parapoxale de la peau contractée par les moutons, en particulier les agneaux et les chèvres.",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/TzU25Lay4W.jpg",
+    "date": "2024-05-10 18:12:09",
+    "diseaseTitle": "ORF"
+  },
+  {
+    "id": 63,
+    "title": "ORF",
+    "description": "L'ORF, également connu sous le nom de « ecthyma contagieux », est une infection cutanée causée par un virus de la famille des poxvirus, spécifiquement le virus de l'orf (OV) Ce virus est souvent contracté par les bergers les vétérinaires et d'autres personnes en contact étroit avec des moutons, des chèvres ou d'autres animaux infectés.",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/maPibaW6np.jpg",
+    "date": "2024-05-10 18:12:32",
+    "diseaseTitle": "ORF"
+  },
+  {
+    "id": 64,
+    "title": "PANARIS",
+    "description": "Un panaris est une infection cutanée et sous-cutanée d’un doigt ou d’un orteil.",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/6XhaPzuifz.jpg",
+    "date": "2024-05-10 18:14:58",
+    "diseaseTitle": "PANARIS"
+  },
+  {
+    "id": 65,
+    "title": "PANARIS",
+    "description": "Le panaris est une infection douloureuse de la peau autour d'un ongle, généralement causée par des bactéries telles que Staphylococcus aureus. Cette infection survient le plus souvent au niveau des doigts, mais peut également affecter les orteils.",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/msnSkSgBXs.jpg",
+    "date": "2024-05-10 18:15:12",
+    "diseaseTitle": "PANARIS"
+  },
+  {
+    "id": 66,
+    "title": "Verrues communes",
+    "description": "Le VPH infecte le épidermique les cellules qui composent la peau et épithélium les cellules qui composent le anogénital des voies respiratoires et des voies respiratoires supérieures.",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/mlmxELFDfA.jpg",
+    "date": "2024-05-10 18:15:59",
+    "diseaseTitle": "PAPILLOMES VIRAUX"
+  },
+  {
+    "id": 67,
+    "title": "Verrue filiforme",
+    "description": "Une verrue filiforme est une croissance cutanée bénigne qui se présente sous la forme d'une excroissance mince, allongée et filiforme. Ces verrues sont généralement de couleur chair ou légèrement plus foncée que la peau environnante. Elles sont souvent souples au toucher et peuvent être présentes sur différentes parties du corps, y compris le visage, le cou, les paupières, les aisselles, le tronc et les parties génitales.",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/v1_K-bzede.jpg",
+    "date": "2024-05-10 18:16:26",
+    "diseaseTitle": "PAPILLOMES VIRAUX"
+  },
+  {
+    "id": 68,
+    "title": "Verrue plantaire",
+    "description": "Les verrues filiformes sont généralement causées par une infection par le virus du papillome humain (VPH), plus précisément par les souches virales HPV 1, 2, 4, 27 ou 29. Ces verrues sont souvent acquises par contact direct avec la peau infectée ou par contact avec des surfaces contaminées, telles que des serviettes ou des sols humides dans les piscines publiques.",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/7ppaRCcDRM.jpg",
+    "date": "2024-05-10 18:16:49",
+    "diseaseTitle": "PAPILLOMES VIRAUX"
+  },
+  {
+    "id": 69,
+    "title": "PÉDICULOSE",
+    "description": "La pédiculose est une infestation de poux, des petits insectes parasites qui se nourrissent de sang humain.",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/hwjnr5YTgi.jpeg",
+    "date": "2024-05-10 18:17:21",
+    "diseaseTitle": "PÉDICULOSE"
+  },
+  {
+    "id": 70,
+    "title": "PÉDICULOSE",
+    "description": "La pédiculose est une affection cutanée causée par une infestation de poux des parasites qui se nourrissent de sang humain Les poux peuvent infester différentes parties du corps notamment le cuir chevelu les cheveux les cils les sourcils et moins fréquemment, les poils du corps.",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/HU0YLXhvbu.jpeg",
+    "date": "2024-05-10 18:17:45",
+    "diseaseTitle": "PÉDICULOSE"
+  },
+  {
+    "id": 71,
+    "title": "PÉDICULOSE",
+    "description": "Les poux de tête (Pediculus humanus capitis) sont les plus courants et se trouvent généralement sur le cuir chevelu et les cheveux Ils se propagent par contact direct avec une personne infestée ou par le partage d'objets personnels tels que des brosses à cheveux des bonnets des taies d'oreiller ou des vêtements.",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/jbSVvkiAIj.jpg",
+    "date": "2024-05-10 18:18:01",
+    "diseaseTitle": "PÉDICULOSE"
+  },
+  {
+    "id": 72,
+    "title": "PITYRIASIS VERSICOLOR",
+    "description": "Le pityriasis versicolor est une infection à levures courante de la peau, dans laquelle des taches squameuses décolorées apparaissent sur la poitrine et le dos.",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/mVKB4jRYGa.jpg",
+    "date": "2024-05-10 18:18:27",
+    "diseaseTitle": "PITYRIASIS VERSICOLOR"
+  },
+  {
+    "id": 73,
+    "title": "PITYRIASIS VERSICOLOR",
+    "description": "Le pityriasis versicolor également connu sous le nom de teigne est une affection cutanée causée par une levure appelée Malassezia furfur (anciennement connue sous le nom de Pityrosporum ovale) Cette levure est présente sur la peau de la plupart des individus et ne provoque généralement pas de problèmes Cependant dans certaines conditions elle peut se multiplier de manière excessive et entraîner des symptômes caractéristiques du pityriasis versicolor.",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/mHzxBMISQ3.jpg",
+    "date": "2024-05-10 18:20:35",
+    "diseaseTitle": "PITYRIASIS VERSICOLOR"
+  },
+  {
+    "id": 74,
+    "title": "PITYRIASIS VERSICOLOR",
+    "description": "Les symptômes du pityriasis versicolor comprennent l'apparition de taches cutanées plates de couleur blanche brune ou rougeâtre généralement sur le tronc les épaules le cou et parfois le visage.",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/NOK3hjvxeI.jpg",
+    "date": "2024-05-10 18:20:57",
+    "diseaseTitle": "PITYRIASIS VERSICOLOR"
+  },
+  {
+    "id": 75,
+    "title": "PYTIRIASIS ROSÉ DE GILBERT",
+    "description": "Le pityriasis rosé de Gilbert est une affection cutanée bénigne caractérisée par l'apparition de lésions rosées ou rougeâtres sur la peau, souvent avec des desquamations et parfois des démangeaisons légères.",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/AWfofVK9K5.jpg",
+    "date": "2024-05-10 18:21:47",
+    "diseaseTitle": "PYTIRIASIS ROSÉ DE GILBERT"
+  },
+  {
+    "id": 76,
+    "title": "PYTIRIASIS ROSÉ DE GILBERT",
+    "description": "Il s'agit de la première lésion qui apparaît, souvent plus grande que les lésions suivantes, et qui peut être précédée de symptômes pseudo-grippaux tels que fièvre, maux de tête et malaise général.",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/u-Mdl9OdZb.jpeg",
+    "date": "2024-05-10 18:22:05",
+    "diseaseTitle": "PYTIRIASIS ROSÉ DE GILBERT"
+  },
+  {
+    "id": 77,
+    "title": "PYTIRIASIS ROSÉ DE GILBERT",
+    "description": "Ces lésions apparaissent quelques jours à quelques semaines après la plaque mère, généralement en plus grand nombre et de taille plus petite.",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/Kwdlhp___P.jpeg",
+    "date": "2024-05-10 18:22:22",
+    "diseaseTitle": "PYTIRIASIS ROSÉ DE GILBERT"
+  },
+  {
+    "id": 78,
+    "title": "RICKETTSIOSE",
+    "description": "La rickettsiose est une maladie infectieuse causée par des bactéries du genre Rickettsia.",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/KUs_NDeVxx.jpg",
+    "date": "2024-05-10 18:23:00",
+    "diseaseTitle": "RICKETTSIOSE"
+  },
+  {
+    "id": 79,
+    "title": "RICKETTSIOSE",
+    "description": "Les symptômes courants de la rickettsiose comprennent une fièvre élevée des maux de tête des frissons des douleurs musculaires et articulaires une éruption cutanée des ganglions lymphatiques enflés et une fatigue intense.",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/uq4on_6gBL.jpg",
+    "date": "2024-05-10 18:23:20",
+    "diseaseTitle": "RICKETTSIOSE"
+  },
+  {
+    "id": 80,
+    "title": "TEIGNES DU CUIR CHEVELU",
+    "description": "La teigne du cuir chevelu est une infection fongique de la peau du cuir chevelu et des follicules pileux, généralement causée par des champignons du genre Trichophyton ou Microsporum.",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/I6qtZtFAxv.jpg",
+    "date": "2024-05-10 18:23:56",
+    "diseaseTitle": "TEIGNES DU CUIR CHEVELU"
+  },
+  {
+    "id": 81,
+    "title": "TEIGNES DU CUIR CHEVELU",
+    "description": "La teigne du cuir chevelu, également connue sous le nom de tinea capitis, est une infection fongique du cuir chevelu et des cheveux.",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/Lq_i3LIrd6.jpg",
+    "date": "2024-05-10 18:24:21",
+    "diseaseTitle": "TEIGNES DU CUIR CHEVELU"
+  },
+  {
+    "id": 82,
+    "title": "TUBERCULOSE",
+    "description": "La tuberculose est une maladie infectieuse causée par la bactérie Mycobacterium tuberculosis.",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/3ZXu01zE9E.jpg",
+    "date": "2024-05-10 18:24:50",
+    "diseaseTitle": "TUBERCULOSE"
+  },
+  {
+    "id": 83,
+    "title": "TUBERCULOSE",
+    "description": "Les symptômes de la tuberculose peuvent varier en fonction de la forme de la maladie et de la gravité de l'infection.",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/CjG8IwXGyq.jpg",
+    "date": "2024-05-10 18:25:03",
+    "diseaseTitle": "TUBERCULOSE"
+  },
+  {
+    "id": 84,
+    "title": "VARICELLE",
+    "description": "La varicelle est une maladie infectieuse causée par le virus varicelle-zona (VZV) un type de virus de la famille des herpès virus.",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/TBAZAB4RBn.jpg",
+    "date": "2024-05-10 18:27:34",
+    "diseaseTitle": "VARICELLE"
+  },
+  {
+    "id": 85,
+    "title": "VARICELLE",
+    "description": "Les symptômes de la varicelle comprennent généralement une éruption cutanée caractéristique de petites taches rouges qui se transforment en vésicules remplies de liquide, souvent accompagnées de fièvre, de maux de tête, de fatigue et de malaise général.",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/_JWgWR3Dh3.jpg",
+    "date": "2024-05-10 18:28:03",
+    "diseaseTitle": "VARICELLE"
+  },
+  {
+    "id": 86,
+    "title": "ZONA",
+    "description": "Le zona, également connu sous le nom d'herpès zoster, est une infection virale causée par le virus de la varicelle-zona, le même virus responsable de la varicelle.",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/Dz02L8t-y4.jpg",
+    "date": "2024-05-10 18:28:28",
+    "diseaseTitle": "ZONA"
+  },
+  {
+    "id": 87,
+    "title": "ZONA",
+    "description": "Les symptômes du zona comprennent généralement une douleur, des picotements, des démangeaisons ou une sensation de brûlure dans une région spécifique de la peau, suivis par l'apparition d'une éruption cutanée caractéristique.",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/is5-srIXQH.jpg",
+    "date": "2024-05-10 18:28:47",
+    "diseaseTitle": "ZONA"
+  },
+  {
+    "id": 88,
+    "title": "Lyme annulaire (fesse)",
+    "description": "Anneau rouge plus ou moins foncé de grande taille centré sur la morsure de tique. Il est très fréquent que le patient ne se souvienne pas de la morsure de tique.",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/T7JM-2o-Fp.jpg",
+    "date": "2024-05-10 18:29:36",
+    "diseaseTitle": "BORRÉLIOSE"
+  },
+  {
+    "id": 89,
+    "title": "COXSAKIE",
+    "description": "La maladie à coxsackie est une infection virale causée par le virus Coxsackie, qui appartient à la famille des entérovirus. Ces virus sont courants et peuvent causer une variété de symptômes, allant d'une maladie bénigne à des infections plus graves.",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/kpdl-NTMxW.jpg",
+    "date": "2024-05-10 18:30:02",
+    "diseaseTitle": "COXSAKIE"
+  },
+  {
+    "id": 90,
+    "title": "COXSAKIE",
+    "description": "La maladie à coxsackie se propage généralement par contact direct avec des sécrétions respiratoires ou fécales d'une personne infectée, ainsi que par contact avec des surfaces contaminées. Elle est plus fréquente chez les enfants, en particulier pendant les mois d'été et d'automne.",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/diAx-6sndy.jpg",
+    "date": "2024-05-10 18:30:19",
+    "diseaseTitle": "COXSAKIE"
+  },
+  {
+    "id": 91,
+    "title": "Dermatophytoses de la peau glabre",
+    "description": "Les dermatophytoses de la peau glabre, également connues sous le nom de teignes ou tinea corporis, sont des infections fongiques superficielles de la peau lisse (c'est-à-dire dépourvue de poils) causées par des champignons dermatophytes.",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/jViDUt43lB.jpg",
+    "date": "2024-05-10 18:30:53",
+    "diseaseTitle": "DERMATOPHYTOSES DE LA PEAU GLABRE"
+  },
+  {
+    "id": 92,
+    "title": "Dermatophytoses de la peau glabre",
+    "description": "Les symptômes des dermatophytoses de la peau glabre comprennent généralement des lésions cutanées circulaires ou ovales, rouges, squameuses et souvent démangeantes.",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/R2H_btrOtB.jpg",
+    "date": "2024-05-10 18:31:11",
+    "diseaseTitle": "DERMATOPHYTOSES DE LA PEAU GLABRE"
+  },
+  {
+    "id": 93,
+    "title": "DERMATOPHYTOSES UNGUÉALES",
+    "description": "Les dermatophytoses unguéales, également connues sous le nom d'onychomycose, sont des infections fongiques des ongles causées par des champignons dermatophytes, des levures ou des moisissures.",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/vJUXxerFMq.jpg",
+    "date": "2024-05-10 18:31:48",
+    "diseaseTitle": "DERMATOPHYTOSES UNGUÉALES"
+  },
+  {
+    "id": 94,
+    "title": "DERMATOPHYTOSES UNGUÉALES",
+    "description": "Les symptômes des dermatophytoses unguéales comprennent généralement un épaississement de l'ongle, un changement de couleur (généralement jaunâtre ou blanchâtre), une fragilité de l'ongle, des stries ou des rainures sur la surface de l'ongle, et parfois une déformation de l'ongle ou une desquamation de la peau autour de l'ongle.",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/XHOSqT4RIJ.jpg",
+    "date": "2024-05-10 18:32:12",
+    "diseaseTitle": "DERMATOPHYTOSES UNGUÉALES"
+  },
+  {
+    "id": 95,
+    "title": "DERMATITE SÉBORRHÉIQUE",
+    "description": "La dermatite séborrhéique, également connue sous le nom de pellicules lorsqu'elle affecte le cuir chevelu, est une affection cutanée chronique caractérisée par une inflammation de la peau, souvent associée à une desquamation grasse ou squameuse.",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/HddjvndvPR.jpeg",
+    "date": "2024-05-10 18:32:59",
+    "diseaseTitle": "DERMATITE SÉBORRHÉIQUE"
+  },
+  {
+    "id": 96,
+    "title": "DERMATITE SÉBORRHÉIQUE",
+    "description": "Les symptômes de la dermatite séborrhéique comprennent généralement des plaques rouges ou roseâtres sur la peau, recouvertes de fines écailles blanches ou jaunes-grises.",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/l0vRBu6ScE.jpg",
+    "date": "2024-05-10 18:33:21",
+    "diseaseTitle": "DERMATITE SÉBORRHÉIQUE"
+  },
+  {
+    "id": 97,
+    "title": "ECTHYMA",
+    "description": "L'ecthyma est une infection cutanée bactérienne profonde et ulcéreuse, souvent causée par des bactéries du genre Streptococcus ou Staphylococcus.",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/0Aa75pGvnJ.jpg",
+    "date": "2024-05-10 18:33:44",
+    "diseaseTitle": "ECTHYMA"
+  },
+  {
+    "id": 98,
+    "title": "ECTHYMA",
+    "description": "L'ecthyma peut se développer sur n'importe quelle partie du corps, mais il est le plus souvent observé sur les jambes, les bras, les fesses et d'autres zones où la peau est sujette aux abrasions ou aux traumatismes.",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/a9ax-yZ8Lq.jpg",
+    "date": "2024-05-10 18:33:59",
+    "diseaseTitle": "ECTHYMA"
+  },
+  {
+    "id": 99,
+    "title": "ECTHYMA",
+    "description": "L'ecthyma peut se développer sur n'importe quelle partie du corps, mais il est le plus souvent observé sur les jambes, les bras, les fesses et d'autres zones où la peau est sujette aux abrasions ou aux traumatismes.",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/RIcAyb607E.jpg",
+    "date": "2024-05-10 18:34:12",
+    "diseaseTitle": "ECTHYMA"
+  },
+  {
+    "id": 100,
+    "title": "ÉRYSIPÈLE",
+    "description": "L'érysipèle est une infection cutanée aiguë causée généralement par des bactéries du groupe A Streptococcus, mais parfois par d'autres bactéries comme Staphylococcus aureus.",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/9kWfKvbi0O.jpg",
+    "date": "2024-05-10 18:34:38",
+    "diseaseTitle": "ÉRYSIPÈLE"
+  },
+  {
+    "id": 101,
+    "title": "ÉRYSIPÈLE",
+    "description": "Les symptômes de l'érysipèle comprennent généralement une zone de peau rouge, chaude, enflée et douloureuse, souvent avec des bords nettement délimités.",
+    "publisher": "Service Dermatologie",
+    "url": "https://pub-86b11bdda36b46fc8580c755e4907d53.r2.dev/images/h-D9ax2-kD.jpg",
+    "date": "2024-05-10 18:34:52",
+    "diseaseTitle": "ÉRYSIPÈLE"
+  }
+]

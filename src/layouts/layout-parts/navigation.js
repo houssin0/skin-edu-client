@@ -15,9 +15,15 @@ user.userType === 'med_student' && {
   name: 'Dashboard',
   path: '/dashboard',
   icon: duotone.PersonChalkboard
-}, user.userType === 'admin' && {
+},
+user.userType === 'med_teacher' && {
+  name: 'Dashboard',
+  path: '/dashboard/teacher-app',
+  icon: duotone.PersonChalkboard
+},
+user.userType === 'admin' && {
   name: 'App',
-  path: '/dashboard/crm',
+  path: '/dashboard/app',
   icon: duotone.CommentsQuestionCheck,
   badge: {
     value: '22'
@@ -110,18 +116,18 @@ user.userType === 'med_student' && {
   //   name: 'User List 2',
   //   path: '/dashboard/user-list-v2'
   // }, 
-  {
-    name: 'User Grid',
-    path: '/dashboard/user-grid'
-  }, 
   // {
-  //   name: 'User Grid 2',
-  //   path: '/dashboard/user-grid-v2'
+  //   name: 'User Grid',
+  //   path: '/dashboard/user-grid'
   // }, 
-  {
-    name: 'Contact List',
-    path: '/dashboard/contact-list'
-  }, 
+  // // {
+  // //   name: 'User Grid 2',
+  // //   path: '/dashboard/user-grid-v2'
+  // // }, 
+  // {
+  //   name: 'Contact List',
+  //   path: '/dashboard/contact-list'
+  // }, 
   // {
   //   name: 'Contact Grid',
   //   path: '/dashboard/contact-grid'
@@ -242,7 +248,8 @@ user.userType === 'med_student' && {
   name: 'Calendar',
   icon: duotone.Calender,
   path: '/dashboard/calender'
-}, {
+}, 
+{
   name: 'Chats',
   icon: duotone.Chat,
   children: [{
@@ -292,21 +299,10 @@ user.userType === 'med_student' && {
 //   }]
 // },
  {
-  name: 'Pages',
+  name: 'About',
   icon: duotone.Pages,
-  children: [{
-    name: 'Pricing',
-    path: '/dashboard/pricing'
-  }, {
-    name: 'About',
-    path: '/dashboard/about'
-  }, {
-    name: 'Contact',
-    path: '/dashboard/contact'
-  }, {
-    name: 'Privacy',
-    path: '/dashboard/privacy'
-  }]
+  path: '/dashboard/about',
+
 },
 //  {
 //   name: 'Documentation',

@@ -1,13 +1,13 @@
 import { BusinessCenter, Mail, Place } from "@mui/icons-material";
 import { Box, Card, Divider, Grid, styled } from "@mui/material";
 import FlexBox from "components/flexbox/FlexBox";
-import MoreOptions from "components/MoreOptions";
+// import MoreOptions from "components/MoreOptions";
 import { H3, H4, H6, Small } from "components/Typography";
 import FollowerIcon from "icons/FollowerIcon";
 import UserPlusIcon from "icons/UserPlusIcon";
-import { useState } from "react";
+// import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import PostCard from "./PostCard"; // styled components
+// import PostCard from "./PostCard"; // styled components
 
 const IconWrapper = styled(Box)(({
   theme,
@@ -36,13 +36,13 @@ const Profile = () => {
   const {
     t
   } = useTranslation();
-  const [moreEl, setMoreEl] = useState(null);
+  // const [setMoreEl] = useState(null);
 
-  const handleMoreOpen = event => {
-    setMoreEl(event.currentTarget);
-  };
+  // const handleMoreOpen = event => {
+  //   setMoreEl(event.currentTarget);
+  // };
 
-  const handleMoreClose = () => setMoreEl(null);
+  // const handleMoreClose = () => setMoreEl(null);
 
   return <Grid container spacing={3}>
       <Grid >
@@ -123,13 +123,13 @@ const details = [{
   smallText: "Doctorat",
   boldText: "Médecine Université de Paris, 1990"
 }];
-const postList = [{
-  id: 1,
-  postTitle: "Coffee and Afternoon",
-  postImage: "/static/post-image/post-1.png"
-}, {
-  id: 2,
-  postTitle: "Coffee and Afternoon",
-  postImage: ""
-}];
+// const postList = [{
+//   id: 1,
+//   postTitle: "Coffee and Afternoon",
+//   postImage: "/static/post-image/post-1.png"
+// }, {
+//   id: 2,
+//   postTitle: "Coffee and Afternoon",
+//   postImage: ""
+// }];
 export default Profile;

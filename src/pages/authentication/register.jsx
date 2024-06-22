@@ -18,7 +18,7 @@ const Register = () => {
   const navigate = useNavigate();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-
+ 
   const initialValues = {
     name: "",
     email: "",

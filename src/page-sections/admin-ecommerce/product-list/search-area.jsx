@@ -6,7 +6,7 @@ import { H6 } from "components/Typography";
 // import Apps from "icons/Apps";
 // import FormatBullets from "icons/FormatBullets";
 import React from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+// import { useLocation } from "react-router-dom";
 import { lightTheme } from "../../../constants";
 const SecondaryWrapper = styled(FlexBetween)(({
   theme
@@ -29,9 +29,9 @@ const SearchArea = ({
   selectedItems
 }) => {
   // const navigate = useNavigate();
-  const {
-    pathname
-  } = useLocation();
+  // const {
+  //   pathname
+  // } = useLocation();
 
   // const activeColor = path => pathname === path ? "primary.main" : "text.disabled";
 

@@ -33,8 +33,8 @@ const Password = () => {
       confirmNewPassword: ""
     },
     validationSchema: Yup.object({
-      currentPassword: Yup.string().min(3, "Must be greater than 3 characters").required("Current Password is Required!"),
-      newPassword: Yup.string().min(8).required("New Password is Required!"),
+      currentPassword: Yup.string().min(6, "Must be greater than 3 characters").required("Current Password is Required!"),
+      newPassword: Yup.string().min(6).required("New Password is Required!"),
       confirmNewPassword: Yup.string().oneOf([Yup.ref("newPassword"), null], "Password doesn't match")
     }),
     onSubmit: async (values) => {

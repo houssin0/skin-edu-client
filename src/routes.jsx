@@ -1,10 +1,11 @@
 import LoadingScreen from "components/LoadingScreen";
 import DashboardLayout from "layouts/layout-v3/DashboardLayout";
 import { lazy, Suspense } from "react";
-import { Navigate } from "react-router-dom";
+// import { Navigate } from "react-router-dom";
 import AuthGuard from "./page-sections/authentication/AuthGuard";
 import GuestGuard from "./page-sections/authentication/GuestGuard";
 import AdminGuard from "./page-sections/authentication/AdminGuard";
+import RoleBasedRedirect from "./page-sections/authentication/RoleBasedRedirect";
 import TeacherAdminGuard from "./page-sections/authentication/TeacherAdminGuard";
 import ApprovedGuard from "page-sections/authentication/ApprovedGuard";
 
@@ -106,10 +107,15 @@ const DiseaseGrid = Loadable(lazy(() => import("./pages/diseases-dermatologie/di
 const DiseaseDetails = Loadable(lazy(() => import("./pages/diseases-dermatologie/disease-details")));
 const AddNewDisease = Loadable(lazy(() => import("./pages/diseases-dermatologie/add-new-disease")));
 
+// quiz pages
+const TakeAQuiz= Loadable(lazy(() => import("./Quiz/Validation")));
+const MakeAQuiz= Loadable(lazy(() => import("./Quiz/Correction")));
+
+
 const routes = [
   {
     path: "/",
-    element: <Navigate to="/dashboard" />
+    element: <RoleBasedRedirect />
   }, {
     path: "login",
     element: (
@@ -146,17 +152,17 @@ const routes = [
       path: "",
       element: <LearningManagement />
     }, {
-      path: "job-management",
+      path: "teacher-app",
       element: <JobManagement />
     }, {
       path: "sales",
       element: <Sales />
-    }, {
+    }, { 
       path: "sales-v2",
       element: <SalesV2 />
     },
     {
-      path: "crm",
+      path: "app", 
       element: (
         <AdminGuard>
           <CRM />
@@ -380,6 +386,14 @@ const routes = [
       element: <PrivacyPage />
     },
     ]
+  },
+  {
+    path: "take-a-quiz",
+    element: <TakeAQuiz />
+  },
+  {
+    path: "make-a-quiz",
+    element: <MakeAQuiz />
   },
   {
     path: "*",

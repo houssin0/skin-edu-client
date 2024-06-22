@@ -36,6 +36,12 @@ const ImageDetails = () => {
             {image.description}
           </Typography>
           <Typography variant="h6" gutterBottom>
+          Vignette Médical:
+          </Typography>
+          <Typography variant="body1" gutterBottom>
+            {image.vignette_medical}
+          </Typography>
+          <Typography variant="h6" gutterBottom>
             Publisher:
           </Typography>
           <Typography variant="body1" gutterBottom>

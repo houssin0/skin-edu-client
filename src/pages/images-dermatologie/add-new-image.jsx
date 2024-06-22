@@ -73,6 +73,7 @@ const AddNewImage = () => {
   const validationSchema = Yup.object().shape({
     title: Yup.string().required("Title is Required!"),
     description: Yup.string().required("Description is Required!"),
+    vignette_medical: Yup.string().required("Vignette médical is Required!"),
     type: Yup.string().required("Type is Required!"),
   });
 
@@ -117,6 +118,7 @@ const AddNewImage = () => {
           body: JSON.stringify({
             title: values.title,
             description: values.description,
+            vignette_medical: values.vignette_medical,
             publisher: user.name,
             url: imageUrl,
             diseaseTitle: values.type,
@@ -228,6 +230,21 @@ const AddNewImage = () => {
                         touched.description && errors.description
                       )}
                       helperText={touched.description && errors.description}
+                    />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <AppTextField
+                      multiline
+                      fullWidth
+                      rows={3}
+                      name="vignette_medical"
+                      placeholder="Vignette Médical"
+                      value={values.vignette_medical}
+                      onChange={handleChange}
+                      error={Boolean(
+                        touched.vignette_medical && errors.vignette_medical
+                      )}
+                      helperText={touched.vignette_medical && errors.vignette_medical}
                     />
                   </Grid>
 

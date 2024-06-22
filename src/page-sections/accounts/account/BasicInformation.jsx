@@ -115,7 +115,7 @@ const BasicInformation = () => {
         });
 
         if (response.ok) {
-          const result = await response.json();
+          // const result = await response.json();
           toast.success("Update successful", { duration: 4000 });
           window.location.reload(); // Refresh the page
         } else {

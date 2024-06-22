@@ -48,10 +48,13 @@ const Login = () => {
         toast.success("You Logged In Successfully", { duration: 4000 });
   
         if (user.userType === "admin") {
-          navigate("/dashboard/crm");
-        } else {
+          navigate("/dashboard/app");
+        } else if (user.userType === "med_teacher") {
+          navigate("/dashboard/teacher-app");
+        } else if (user.userType === "med_student") {
           navigate("/dashboard");
         }
+
       } catch (error) {
         setError(error.message);
         setLoading(false);

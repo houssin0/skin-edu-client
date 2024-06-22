@@ -1,11 +1,11 @@
-import { alpha, Avatar, Box, Card, Stack, useTheme } from "@mui/material";
-import FlexBox from "components/flexbox/FlexBox";
-import FlexRowAlign from "components/flexbox/FlexRowAlign";
-import { H2, H6, Tiny } from "components/Typography";
-import ChartPieIcon from "icons/ChartPieIcon";
+import {  Avatar, Box, Card, Stack } from "@mui/material";
+// import FlexBox from "components/flexbox/FlexBox";
+// import FlexRowAlign from "components/flexbox/FlexRowAlign";
+import { H2, H6 } from "components/Typography";
+// import ChartPieIcon from "icons/ChartPieIcon";
 
 const LeadCard = () => {
-  const theme = useTheme();
+  // const theme = useTheme();
   return <Card sx={{
     padding: 3,
     height: "100%"

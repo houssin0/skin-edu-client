@@ -14,6 +14,7 @@ import columnShape from "page-sections/user-list/columnShape";
 import HeadingArea from "page-sections/user-list/heading-area";
 import { useAsyncDebounce, useGlobalFilter, usePagination, useRowSelect, useSortBy, useTable } from "react-table";
 import EditUserDialog from "./EditUserDialog";
+import toast from "react-hot-toast";
 
 const HeadTableCell = styled(TableCell)(({ theme }) => ({
   fontSize: 12,
@@ -46,7 +47,6 @@ const SelectCheckBox = forwardRef(({ indeterminate, ...rest }, ref) => {
 });
 
 const UserListView = () => {
-  const [value, setValue] = useState("");
   const [tableData, setTableData] = useState([]);
   const [filteredData, setFilteredData] = useState([]); // New state for filtered data
   const [userType, setUserType] = useState(""); // New state for user type
@@ -100,7 +100,6 @@ const UserListView = () => {
     gotoPage,
     state,
     setGlobalFilter,
-    selectedFlatRows
   } = useTable({
     columns,
     data: filteredData
@@ -137,11 +136,38 @@ const UserListView = () => {
       const data = await response.json();
       if (response.ok) {
         setTableData(prevData => prevData.map(user => (user.id === data.id ? data : user)));
+        toast.success("User is updated successfully", { duration: 4000 });
+        
+        } else {
+          toast.error("Failed to update user", { duration: 4000 });
+          }
+          } catch (error) {
+            toast.error("Failed to update user", { duration: 4000 });
+
+    }
+  };
+
+  const handleDelete = async (editingUser) => {
+    try {
+      console.log(editingUser);
+      console.log(editingUser.id);
+      const accessToken = localStorage.getItem("accessToken");
+      const response = await fetch(`https://myserver.oulkaid-elhoussin.workers.dev/api/users/${editingUser.id}`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': accessToken
+        },
+      });
+      const data = await response.json();
+      if (response.ok) {
+        setTableData(prevData => prevData.filter(user => user.id !== editingUser.id));
+        toast.success(data.message, { duration: 4000 });
       } else {
-        console.error('Failed to update user:', data.message);
+        toast.error(data.message, { duration: 4000 });
       }
     } catch (error) {
-      console.error('Failed to update user:', error);
+      toast.error("Failed to delete user", { duration: 4000 });
     }
   };
 
@@ -163,7 +189,7 @@ const UserListView = () => {
       const data = await response.json();
       setTableData(data);
     } catch (error) {
-      console.error('Failed to refresh users:', error);
+      toast.error("Failed to refresh users", { duration: 4000 });
     } finally {
       setLoading(false);
     }
@@ -224,6 +250,7 @@ const UserListView = () => {
           open={openEditDialog}
           onClose={handleDialogClose}
           onSave={handleEditSave}
+          onDelete={handleDelete}
           user={editingUser}
         />
       )}

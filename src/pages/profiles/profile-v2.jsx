@@ -8,7 +8,7 @@ import { H3, Small } from "components/Typography";
 import useAuth from "hooks/useAuth";
 import FollowerCard from "page-sections/profiles/profile-v2/FollowerCard";
 import FriendCard from "page-sections/profiles/profile-v2/FriendCard";
-import Gallery from "page-sections/profiles/profile-v2/Gallery";
+// import Gallery from "page-sections/profiles/profile-v2/Gallery";
 import Profile from "page-sections/profiles/profile-v2/Profile";
 import { useState } from "react";
 import { useTranslation } from "react-i18next"; // styled components
@@ -96,7 +96,7 @@ const UserProfile = () => {
               <StyledTab label={t("Profile")} value="1" />
               <StyledTab label={t("Follower")} value="2" />
               <StyledTab label={t("Friends")} value="3" />
-              <StyledTab label={t("Gallery")} value="4" />
+              {/* <StyledTab label={t("Gallery")} value="4" /> */}
             </StyledTabList>
           </FlexBetween>
         </StyledCard>
@@ -127,9 +127,9 @@ const UserProfile = () => {
             </Grid>
           </StyledTabPanel>
 
-          <StyledTabPanel value="4">
+          {/* <StyledTabPanel value="4">
             <Gallery />
-          </StyledTabPanel>
+          </StyledTabPanel> */}
         </Box>
       </TabContext>
     </Box>;

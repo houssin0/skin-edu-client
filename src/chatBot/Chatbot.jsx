@@ -5,7 +5,7 @@ import chatBotIcon from './chat-bot.gif'; // Ensure this import path is correct
 const API_KEY = "sk-proj-vv0ZG768rf3LkogiTDIAT3BlbkFJIXooUP5gEilF3h4O6vud";
 const systemMessage = {
   role: "system",
-  content: "Parler comme un spécialiste dans le domaine de la dermatologie, et donner des solutions et des conseils pour les problèmes de peau."
+  content: "Parler comme un spécialiste dans le domaine de la dermatologie, et donner des solutions et des conseils pour les problèmes de peau, et informer sur les vignette médicale"
 };
 
 const Chatbot = () => {
@@ -19,9 +19,9 @@ const Chatbot = () => {
   const inputRef = useRef(null); // Add useRef for the input field
   const [welcomeChatMessage] = useState({
     role: "system",
-    content: "Hello, I am SkinEdu Assistance! Ask me anything",
+    content: "Bonjour, je suis SkinEdu Assistance! Demander n'importe quoi",
   });
-  const [welcomeMessageVisible, setWelcomeMessageVisible] = useState(false); // State to track welcome message visibility
+  const [welcomeMessageVisible, setWelcomeMessageVisible] = useState(true); // State to track welcome message visibility
 
   const handleCloseWelcomeMessage = () => {
     setWelcomeMessageVisible(false);

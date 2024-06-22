@@ -6,11 +6,11 @@ const index = [{
     name: "Learning Management",
     path: "/dashboard"
   }, {
-    name: "Job Management",
-    path: "/dashboard/job-management"
+    name: "Teacher Dashboard",
+    path: "/dashboard/teacher-app"
   }, {
     name: "App",
-    path: "/dashboard/crm"
+    path: "/dashboard/app"
   }, {
     name: "Sales",
     path: "/dashboard/sales"
